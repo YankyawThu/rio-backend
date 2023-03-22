@@ -63,14 +63,36 @@
                       <a href="{{ route('users.edit', $user) }}" class="btn btn-icons btn-light">
                         <span class="fa fa-edit fa-lg text-primary"></span></a>
 
-                      <form action="{{ route('users.destroy', $user) }}" method="POST" 
+                      <button class="btn btn-light" data-toggle="modal" data-target="#delete-user-{{$user->id}}"><span class="fa fa-trash fa-lg text-danger"></span>
+                      </button>
+  
+                      <!-- Delete Modal -->
+                      <div class="modal fade" id="delete-user-{{$user->id}}" tabindex="-1" role="dialog" aria-labelledby="Add New" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="exampleModalLabel">Confirmation!</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <form action="{{ route('users.destroy', $user) }}" method="POST" 
                             class="d-inline">
-                        @csrf
-                        @method('DELETE')
-                        <button class="btn btn-icons btn-light" onclick="return confirm('Are You Sure?');">
-                          <span class="fa fa-trash fa-lg text-danger"></span></button>
-                      </form>
-                      
+                            @csrf
+                            @method('DELETE')
+                                
+                              <div class="modal-body">
+                                   <span>Are you sure want to delete?</span>       
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                <button type="submit" class="btn btn-primary">Yes</button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+
                     </td>
                   </tr>
                   @endforeach
