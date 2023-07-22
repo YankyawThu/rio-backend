@@ -8,7 +8,9 @@
   		   placeholder="{{ isset($placeholder) ? $placeholder : '' }}"
   		   value="{{ old($name, $value) }}" 
   		   {{ isset($autofocus) ? 'autofocus': ''}}
-  		   {{ isset($required) ? 'required': '' }}> 
+  		   {{ isset($required) ? 'required': '' }}
+		   autocomplete="off"
+	> 
   
   	@if($errors->has($name))
 		<label class="error mt-2 text-danger">{{ $errors->first($name) }}</label>

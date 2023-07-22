@@ -36,10 +36,29 @@
       <div class="collapse {{ show_segment(2, 'users') }}" id="user-dropdown">
         <ul class="nav flex-column sub-menu">
           <li class="nav-item">
-            <a class="nav-link {{ active_path('users') }}" href="{{ route('users.index') }}">User Lists</a>
+            <a class="nav-link {{ active_path('users') }}" href="{{ route('users.index') }}">User List</a>
           </li>
           <li class="nav-item">
             <a class="nav-link {{ active_path('users/create') }}" href="{{ route('users.create') }}">Add New User</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+
+    <!-- Blog management -->
+    <li class="nav-item {{ active_segment(2, 'blogs') }}">
+      <a class="nav-link" data-toggle="collapse" href="#blog-dropdown" aria-expanded="false" aria-controls="blog-dropdown">
+        <i class="menu-icon mdi mdi-account-group"></i>
+        <span class="menu-title">Manage Blog</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse {{ show_segment(2, 'blogs') }}" id="blog-dropdown">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item">
+            <a class="nav-link {{ active_path('blogs') }}" href="{{ route('blogs.index') }}">Blog List</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{ active_path('blogs/create') }}" href="{{ route('blogs.create') }}">Add New Blog</a>
           </li>
         </ul>
       </div>

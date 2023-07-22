@@ -6,8 +6,8 @@ use App\Models\User;
 use App\Filters\UserFilter;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CreateUserRequest;
-use App\Http\Requests\UpdateUserRequest;
+use App\Http\Requests\Admin\CreateUserRequest;
+use App\Http\Requests\Admin\UpdateUserRequest;
 use App\Models\Role;
 
 class UserController extends Controller
