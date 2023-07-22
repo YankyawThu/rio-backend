@@ -71,6 +71,9 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
-        //
+        Storage::delete($blog->image);
+        $blog->delete();
+
+        return redirect()->route('blogs.index');
     }
 }

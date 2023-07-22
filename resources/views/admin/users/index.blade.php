@@ -71,7 +71,7 @@
                         <div class="modal-dialog" role="document">
                           <div class="modal-content">
                             <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalLabel">Confirmation!</h5>
+                              <h5 class="modal-title">Confirmation!</h5>
                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                               </button>
@@ -81,7 +81,7 @@
                             @csrf
                             @method('DELETE')
                                 
-                              <div class="modal-body">
+                              <div class="modal-body text-center">
                                    <span>Are you sure want to delete?</span>       
                               </div>
                               <div class="modal-footer">
