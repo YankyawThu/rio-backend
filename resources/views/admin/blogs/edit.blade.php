@@ -10,7 +10,7 @@
     <div class="card">
       <div class="card-body">
         <div class="d-flex align-items-center justify-content-between">
-          <h4 class="card-title">Add New Blog</h4>
+          <h4 class="card-title">Edit Blog</h4>
 
           <nav aria-label="breadcrumb" class="mb-1">
             <ol class="breadcrumb">
@@ -20,15 +20,16 @@
               <li class="breadcrumb-item">
                 <a href="{{ route('blogs.index') }}">Blog</a>
               </li>
-              <li class="breadcrumb-item active" aria-current="page">Create</li>
+              <li class="breadcrumb-item active" aria-current="page">Edit</li>
             </ol>
           </nav>
         </div>
 
         <div class="row">
           <div class="col-md-12">
-            <form method="POST" action="{{ route('blogs.store') }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('blogs.update',$blog) }}" enctype="multipart/form-data">
               @csrf
+              @method('PATCH')
 
               <fieldset>
 
@@ -36,7 +37,7 @@
                   <div class="col col-md-3">
                     <!-- image -->
                     <div class="form-group">
-                      <img src="{{ asset('assets/images/no-image.png') }}" class="avatar img img-thumbnail" alt="avatar">
+                      <img src="{{ Storage::url($blog->image) }}" class="avatar img img-thumbnail" alt="avatar">
                       <h6>Select Cover Image...</h6>
                       <input type="file" name="image" class="image-upload" accept=".png, .jpg, .jpeg" />
                         @if($errors->has('image'))
@@ -51,21 +52,21 @@
                   @slot('title', 'Title *')  
                   @slot('name', 'title')
                   @slot('placeholder', 'Enter content title')
-                  @slot('value','')
+                  @slot('value', $blog->title)
                   @slot('autofocus', 'autofocus')
                   @slot('required', 'required')
                 @endcomponent
 
                 <div class="form-group">
                   <label>Body Description *</label>
-                  <textarea class="form-control" id="summernote" name="body" style="border: none;" required></textarea>
+                  <textarea class="form-control" id="summernote" name="body" style="border: none;" required>{{ $blog->body }}</textarea>
                 </div>
 
                 @component('components.textbox')
                   @slot('title', 'Published Date *')  
                   @slot('name', 'published_date')
                   @slot('placeholder', 'Enter Published Date')
-                  @slot('value','')
+                  @slot('value', $blog->published_date)
                   @slot('autofocus', 'autofocus')
                   @slot('required', 'required')
                 @endcomponent
@@ -74,7 +75,7 @@
                   @slot('title', 'Author Name *')  
                   @slot('name', 'author_name')
                   @slot('placeholder', 'Enter author name')
-                  @slot('value','')
+                  @slot('value', $blog->author_name)
                   @slot('autofocus', 'autofocus')
                   @slot('required', 'required')
                 @endcomponent

@@ -1,7 +1,56 @@
 @extends('admin.layouts.master')
 
 @section('plugin-css')
+<style>
+blog .image {
+    height: 250px;
+    overflow: hidden;
+    border-radius: 3px 0 0 3px;
+}
 
+.blog .image img {
+    width: 100%;
+    height: 300px;
+}
+
+.blog .date {
+    top: -10px;
+    z-index: 99;
+    right: -10px;
+    padding: 5px;
+    position: absolute;
+    color:#FFFFFF;
+    font-weight:bold;
+    background: #5bc0de;
+    border-radius: 999px;
+}
+
+.blog .blog-details {
+    padding: 0 20px 0 0;
+}
+
+.blog {
+    padding: 0;
+}
+
+.well {
+    border: 0;
+    padding: 20px;
+    min-height: 63px;
+    background: #fff;
+    box-shadow: none;
+    border-radius: 3px;
+    position: relative;
+    max-height: 100000px;
+    border-bottom: 2px solid #ccc;
+}
+
+.blog .blog-details h2 {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}          
+</style>
 @endsection
 
 @section ('container')
@@ -24,7 +73,7 @@
 
         <form action="{{ route('blogs.index') }}" method="GET">
           <div class="row">
-            <div class="col col-md-4">
+            <div class="col col-md-5">
               <div class="form-group">
                 <input type="text" class="form-control" name="keyword" value="{{ request('keyword') }}" placeholder="Keyword">
               </div>
@@ -37,49 +86,31 @@
         <!-- /.d-flex -->
 
         <div class="row">
-          <div class="col-12">
-            <div class="table-responsive">
-              <table id="order-listing" class="table">
-                <thead>
-                  <tr class="bg-primary text-white">
-                    <th>#</th>
-                    <th>Image</th>
-                    <th>Title</th>
-                    <th>Date</th>
-                    <th>Created At</th>
-                    <th>Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  @foreach($data as $index => $item)
-                  <tr>
-                    <td>{{ $index + 1}}</td>
-                    <td>
-                      <div class="preview-thumbnail">
-                        <img src="{{ Storage::url($item->image) }}" alt="image" class="img-sm profile-pic"> 
-                      </div>
-                    </td>
-                    <td>{{ $item->title }}</td>
-                    <td>{{ $item->date }}</td>
-                    <td>{{ $item->created_at }}</td>
-                    <td>
-                      <a href="{{ route('blogs.show', $item) }}" class="btn btn-light">
-                        <span class="fa fa-eye fa-lg text-primary"></span> View</a>
-                    </td>
-                  </tr>
-                  @endforeach
-                </tbody>
-              </table>
+          @foreach ($data as $item)
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="well blog">
+                    <a href="{{ route('blogs.show',$item) }}">
+                        <div class="date primary">
+                            <span class="blog-date">{{ date('d-M-Y', strtotime($item->published_date)) }}</span>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
+                                <div class="image">
+                                    <img src="{{ Storage::url($item->image) }}" alt="">
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+                                <div class="blog-details">
+                                    <h3>{{ $item->title }}</h3>
+                                    <p>{{ Str::limit($item->body,200) }}</p>
+                                    <p>By <b>{{ $item->author_name }}</b></p>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             </div>
-            <!-- /.table-responsive -->
-          </div>
-          <!-- /.col -->
-
-          <!-- pagination -->
-          <nav class="col-12 d-flex justify-content-end mt-4">
-            {{ $data->appends($_GET)->links() }}
-          </nav>
-          <!-- /.col -->
+          @endforeach
         </div>
         <!-- /.row -->
       </div>

@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Filters\BlogFilter;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\BlogRequest;
+use App\Http\Requests\Admin\CreateBlogRequest;
+use App\Http\Requests\Admin\UpdateBlogRequest;
 use App\Models\Blog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -32,7 +33,7 @@ class BlogController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(BlogRequest $request)
+    public function store(CreateBlogRequest $request)
     {
         $data = $request->validated();
         $data['image'] = Storage::putFileAs('blogs', $request->file('image'), Str::uuid().'.jpg', ['visibility' => 'public']);
@@ -55,15 +56,25 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        //
+        return view('admin.blogs.edit',compact('blog'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Blog $blog)
+    public function update(UpdateBlogRequest $request, Blog $blog)
     {
-        //
+        $data = $request->validated();
+
+        if($request->file('image')) {
+            $data['image'] = Storage::putFileAs('blogs', $request->file('image'), Str::uuid().'.jpg', ['visibility' => 'public']);
+            Storage::delete($blog->image);
+        }
+
+        $blog->update($data);
+
+        return redirect()->route('blogs.show',$blog);
+
     }
 
     /**

@@ -20,7 +20,8 @@ class BlogFactory extends Factory
             'title' => fake()->name(),
             'body' => '<blockquote>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa <strong>strong</strong>.</blockquote>',
             'image' => 'blogs/'.time().".jpg",
-            'date' => now()
+            'published_date' => now(),
+            'author_name' => ucfirst(fake()->name())
         ];
     }
 }

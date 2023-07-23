@@ -16,7 +16,8 @@ return new class extends Migration
             $table->string('title');
             $table->longText('body');
             $table->string('image');
-            $table->date('date');
+            $table->timestamp('published_date');
+            $table->string('author_name');
             $table->timestamps();
             //index
             $table->index('title');

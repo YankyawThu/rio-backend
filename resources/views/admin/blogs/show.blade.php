@@ -21,16 +21,16 @@
                     </nav>
                 </div>
                 <div class="row">
-                    <div class="col-md-4 offset-4 mb-3">
+                    <div class="col-md-6 offset-3 mb-3">
                         <div class="d-flex flex-column align-items-center text-center">
                             <img src="{{ Storage::url($blog->image) }}" alt="Admin" class="img" width="100%">
                         </div>
                     </div>
                     <div class="col-md-12 mb-3">
-                        <p class="blog-date m-1">Date - {{ $blog->date }}</p>
+                        <p class="blog-date m-1">By <b>{{ $blog->author_name }}</b>, Published Date <b>{{ date('d-M-Y', strtotime($blog->published_date)) }}</b></p>
                     </div>
                     <div class="col-md-12">
-                        <h4 class="blog-title mt-1">{{ $blog->title }}</h4>
+                        <h4 class="blog-title mt-1"><b>{{ $blog->title }}</b></h4>
                     </div>
                     <div class="col-md-12">
                         <div class="blog-body mt-3">{!! $blog->body !!}</div>
