@@ -61,23 +61,23 @@
                   <textarea class="form-control" id="summernote" name="body" style="border: none;" required></textarea>
                 </div>
 
-                @component('components.textbox')
+                {{-- @component('components.textbox')
                   @slot('title', 'Published Date *')  
                   @slot('name', 'published_date')
                   @slot('placeholder', 'Enter Published Date')
                   @slot('value','')
                   @slot('autofocus', 'autofocus')
                   @slot('required', 'required')
-                @endcomponent
+                @endcomponent --}}
 
-                @component('components.textbox')
+                {{-- @component('components.textbox')
                   @slot('title', 'Author Name *')  
                   @slot('name', 'author_name')
                   @slot('placeholder', 'Enter author name')
                   @slot('value','')
                   @slot('autofocus', 'autofocus')
                   @slot('required', 'required')
-                @endcomponent
+                @endcomponent --}}
 
                 <input class="btn btn-primary" type="submit" value="Save"> 
               </fieldset>
@@ -102,7 +102,7 @@
     $('#summernote').summernote({
         placeholder: 'Enter Content Details',
         tabsize: 2,
-        height: 120,
+        height: 300,
         toolbar: [
           ['style', ['style']],
           ['font', ['bold', 'underline', 'clear']],
@@ -113,9 +113,9 @@
         ]
     });
 
-    $('#published_date').datepicker({
-      format: 'yyyy-mm-dd'
-    });
+    // $('#published_date').datepicker({
+    //   format: 'yyyy-mm-dd'
+    // });
   });
 </script>
 @endsection

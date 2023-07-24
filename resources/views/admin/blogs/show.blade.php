@@ -27,10 +27,10 @@
                         </div>
                     </div>
                     <div class="col-md-12 mb-3">
-                        <p class="blog-date m-1">By <b>{{ $blog->author_name }}</b>, Published Date <b>{{ date('d-M-Y', strtotime($blog->published_date)) }}</b></p>
+                        <p class="blog-date m-1">Date <b>{{ $blog->updated_at->format('d-M-Y') }}</b></p>
                     </div>
                     <div class="col-md-12">
-                        <h4 class="blog-title mt-1"><b>{{ $blog->title }}</b></h4>
+                        <h2 class="blog-title mt-1"><b>{{ $blog->title }}</b></h2>
                     </div>
                     <div class="col-md-12">
                         <div class="blog-body mt-3">{!! $blog->body !!}</div>

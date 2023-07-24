@@ -25,8 +25,8 @@ class CreateBlogRequest extends FormRequest
             'image' => 'required|image|mimes:jpg,png,jpeg|max:2048',
             'title' => 'required|string',
             'body' => 'required',
-            'published_date' => 'required',
-            'author_name' => 'required'
+            // 'published_date' => 'required',
+            // 'author_name' => 'required'
         ];
     }
 }

@@ -2,7 +2,11 @@
 
 @section('plugin-css')
 <style>
-blog .image {
+p {
+    font-size: 14px;
+    color: #777;
+}
+.blog .image {
     height: 250px;
     overflow: hidden;
     border-radius: 3px 0 0 3px;
@@ -10,19 +14,7 @@ blog .image {
 
 .blog .image img {
     width: 100%;
-    height: 300px;
-}
-
-.blog .date {
-    top: -10px;
-    z-index: 99;
-    right: -10px;
-    padding: 5px;
-    position: absolute;
-    color:#FFFFFF;
-    font-weight:bold;
-    background: #5bc0de;
-    border-radius: 999px;
+    height: auto;
 }
 
 .blog .blog-details {
@@ -45,11 +37,20 @@ blog .image {
     border-bottom: 2px solid #ccc;
 }
 
-.blog .blog-details h2 {
+.blog .blog-details h3 {
     margin-bottom: 10px;
     padding-bottom: 10px;
     border-bottom: 1px solid #eee;
-}          
+}
+
+.blog .date .blog-date {
+    color: #000000;
+}
+
+.blog .text-decoration-none{
+    text-decoration: none;
+}
+
 </style>
 @endsection
 
@@ -89,21 +90,19 @@ blog .image {
           @foreach ($data as $item)
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div class="well blog">
-                    <a href="{{ route('blogs.show',$item) }}">
-                        <div class="date primary">
-                            <span class="blog-date">{{ date('d-M-Y', strtotime($item->published_date)) }}</span>
-                        </div>
+                    <a href="{{ route('blogs.show',$item) }}" class="text-decoration-none">
                         <div class="row">
-                            <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                 <div class="image">
                                     <img src="{{ Storage::url($item->image) }}" alt="">
                                 </div>
                             </div>
-                            <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                                 <div class="blog-details">
-                                    <h3>{{ $item->title }}</h3>
-                                    <p>{{ Str::limit($item->body,200) }}</p>
-                                    <p>By <b>{{ $item->author_name }}</b></p>
+                                    <h3 class="blog-title">{{ $item->title }}</h3>
+                                </div>
+                                <div class="date">
+                                  <span class="blog-date">{{ $item->updated_at->format('d-M-Y') }}</span>
                                 </div>
                             </div>
                         </div>
