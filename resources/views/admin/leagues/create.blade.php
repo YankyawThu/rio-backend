@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 
 @section('plugin-css')
- <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote-bs4.min.css" rel="stylesheet">
+ 
 @stop
 
 @section('container')
@@ -10,7 +10,7 @@
     <div class="card">
       <div class="card-body">
         <div class="d-flex align-items-center justify-content-between">
-          <h4 class="card-title">Edit Blog</h4>
+          <h4 class="card-title">Add New League</h4>
 
           <nav aria-label="breadcrumb" class="mb-1">
             <ol class="breadcrumb">
@@ -18,18 +18,17 @@
                 <a href="{{ route('admin.index') }}">Dashboard</a>
               </li>
               <li class="breadcrumb-item">
-                <a href="{{ route('blogs.index') }}">Blog</a>
+                <a href="{{ route('leagues.index') }}">League</a>
               </li>
-              <li class="breadcrumb-item active" aria-current="page">Edit</li>
+              <li class="breadcrumb-item active" aria-current="page">Create</li>
             </ol>
           </nav>
         </div>
 
         <div class="row">
           <div class="col-md-12">
-            <form method="POST" action="{{ route('blogs.update',$blog) }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('leagues.store') }}" enctype="multipart/form-data">
               @csrf
-              @method('PATCH')
 
               <fieldset>
 
@@ -37,7 +36,7 @@
                   <div class="col col-md-3">
                     <!-- image -->
                     <div class="form-group">
-                      <img src="{{ Storage::url($blog->image) }}" class="avatar img img-thumbnail" alt="avatar">
+                      <img src="{{ asset('assets/images/no-image.png') }}" class="avatar img img-thumbnail" alt="avatar">
                       <h6>Select Cover Image...</h6>
                       <input type="file" name="image" class="image-upload" accept=".png, .jpg, .jpeg" />
                         @if($errors->has('image'))
@@ -49,18 +48,13 @@
 
                 <!-- title -->
                 @component('components.textbox')
-                  @slot('title', 'Title *')  
-                  @slot('name', 'title')
-                  @slot('placeholder', 'Enter content title')
-                  @slot('value', $blog->title)
+                  @slot('title', 'Name *')  
+                  @slot('name', 'name')
+                  @slot('placeholder', 'Enter League Name')
+                  @slot('value','')
                   @slot('autofocus', 'autofocus')
                   @slot('required', 'required')
                 @endcomponent
-
-                <div class="form-group">
-                  <label>Body Description *</label>
-                  <textarea class="form-control" id="summernote" name="body" style="border: none;" required>{{ $blog->body }}</textarea>
-                </div>
 
                 <input class="btn btn-primary" type="submit" value="Save"> 
               </fieldset>
@@ -79,23 +73,9 @@
 @endsection
 
 @section('custom-js')
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote-bs4.min.js"></script>
 <script>
   $(function(){
-    $('#summernote').summernote({
-        placeholder: 'Enter Content Details',
-        tabsize: 2,
-        height: 300,
-        toolbar: [
-          ['style', ['style']],
-          ['font', ['bold', 'underline', 'clear']],
-          ['color', ['color']],
-          ['para', ['ul', 'ol', 'paragraph']],
-          ['table', ['table']],
-          ['view', ['fullscreen', 'codeview', 'help']]
-        ]
-    });
-
+    
   });
 </script>
 @endsection

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\LeagueController;
 use App\Http\Controllers\HomeController;
 
 /*
@@ -33,6 +34,7 @@ Route::prefix(config('app.admin_prefix'))->group(function ()
 
 		Route::resource('users', UserController::class);
 		Route::resource('blogs', BlogController::class);
+		Route::resource('leagues', LeagueController::class);
 	});
 
 });

@@ -48,7 +48,7 @@
     <!-- Blog management -->
     <li class="nav-item {{ active_segment(2, 'blogs') }}">
       <a class="nav-link" data-toggle="collapse" href="#blog-dropdown" aria-expanded="false" aria-controls="blog-dropdown">
-        <i class="menu-icon mdi mdi-account-group"></i>
+        <i class="menu-icon fa fa-newspaper-o"></i>
         <span class="menu-title">Manage Blog</span>
         <i class="menu-arrow"></i>
       </a>
@@ -59,6 +59,25 @@
           </li>
           <li class="nav-item">
             <a class="nav-link {{ active_path('blogs/create') }}" href="{{ route('blogs.create') }}">Add New Blog</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+
+    <!-- League management -->
+    <li class="nav-item {{ active_segment(2, 'leagues') }}">
+      <a class="nav-link" data-toggle="collapse" href="#league-dropdown" aria-expanded="false" aria-controls="league-dropdown">
+        <i class="menu-icon fa fa-trophy"></i>
+        <span class="menu-title">Manage League</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse {{ show_segment(2, 'leagues') }}" id="league-dropdown">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item">
+            <a class="nav-link {{ active_path('leagues') }}" href="{{ route('leagues.index') }}">League List</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{ active_path('leagues/create') }}" href="{{ route('leagues.create') }}">Add New League</a>
           </li>
         </ul>
       </div>

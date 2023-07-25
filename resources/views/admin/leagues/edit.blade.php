@@ -10,7 +10,7 @@
     <div class="card">
       <div class="card-body">
         <div class="d-flex align-items-center justify-content-between">
-          <h4 class="card-title">Edit Blog</h4>
+          <h4 class="card-title">Edit League</h4>
 
           <nav aria-label="breadcrumb" class="mb-1">
             <ol class="breadcrumb">
@@ -18,7 +18,7 @@
                 <a href="{{ route('admin.index') }}">Dashboard</a>
               </li>
               <li class="breadcrumb-item">
-                <a href="{{ route('blogs.index') }}">Blog</a>
+                <a href="{{ route('leagues.index') }}">League</a>
               </li>
               <li class="breadcrumb-item active" aria-current="page">Edit</li>
             </ol>
@@ -27,7 +27,7 @@
 
         <div class="row">
           <div class="col-md-12">
-            <form method="POST" action="{{ route('blogs.update',$blog) }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('leagues.update',$league) }}" enctype="multipart/form-data">
               @csrf
               @method('PATCH')
 
@@ -37,7 +37,7 @@
                   <div class="col col-md-3">
                     <!-- image -->
                     <div class="form-group">
-                      <img src="{{ Storage::url($blog->image) }}" class="avatar img img-thumbnail" alt="avatar">
+                      <img src="{{ Storage::url($league->image) }}" class="avatar img img-thumbnail" alt="avatar">
                       <h6>Select Cover Image...</h6>
                       <input type="file" name="image" class="image-upload" accept=".png, .jpg, .jpeg" />
                         @if($errors->has('image'))
@@ -49,18 +49,13 @@
 
                 <!-- title -->
                 @component('components.textbox')
-                  @slot('title', 'Title *')  
-                  @slot('name', 'title')
-                  @slot('placeholder', 'Enter content title')
-                  @slot('value', $blog->title)
-                  @slot('autofocus', 'autofocus')
-                  @slot('required', 'required')
-                @endcomponent
-
-                <div class="form-group">
-                  <label>Body Description *</label>
-                  <textarea class="form-control" id="summernote" name="body" style="border: none;" required>{{ $blog->body }}</textarea>
-                </div>
+                @slot('title', 'Name *')  
+                @slot('name', 'name')
+                @slot('placeholder', 'Enter League Name')
+                @slot('value', $league->name)
+                @slot('autofocus', 'autofocus')
+                @slot('required', 'required')
+              @endcomponent
 
                 <input class="btn btn-primary" type="submit" value="Save"> 
               </fieldset>
@@ -85,7 +80,7 @@
     $('#summernote').summernote({
         placeholder: 'Enter Content Details',
         tabsize: 2,
-        height: 300,
+        height: 120,
         toolbar: [
           ['style', ['style']],
           ['font', ['bold', 'underline', 'clear']],
@@ -96,6 +91,9 @@
         ]
     });
 
+    $('#published_date').datepicker({
+      format: 'yyyy-mm-dd'
+    });
   });
 </script>
 @endsection
