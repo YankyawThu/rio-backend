@@ -1,57 +1,7 @@
 @extends('admin.layouts.master')
 
 @section('plugin-css')
-<style>
-p {
-    font-size: 14px;
-    color: #777;
-}
-.blog .image {
-    height: 250px;
-    overflow: hidden;
-    border-radius: 3px 0 0 3px;
-}
 
-.blog .image img {
-    width: 100%;
-    height: auto;
-}
-
-.blog .blog-details {
-    padding: 0 20px 0 0;
-}
-
-.blog {
-    padding: 0;
-}
-
-.well {
-    border: 0;
-    padding: 20px;
-    min-height: 63px;
-    background: #fff;
-    box-shadow: none;
-    border-radius: 3px;
-    position: relative;
-    max-height: 100000px;
-    border-bottom: 2px solid #ccc;
-}
-
-.blog .blog-details h3 {
-    margin-bottom: 10px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #eee;
-}
-
-.blog .date .blog-date {
-    color: #000000;
-}
-
-.blog .text-decoration-none{
-    text-decoration: none;
-}
-
-</style>
 @endsection
 
 @section ('container')
@@ -87,29 +37,47 @@ p {
         <!-- /.d-flex -->
 
         <div class="row">
-          @foreach ($data as $item)
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="well blog">
-                    <a href="{{ route('blogs.show',$item) }}" class="text-decoration-none">
-                        <div class="row">
-                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                                <div class="image">
-                                    <img src="{{ Storage::url($item->image) }}" alt="">
-                                </div>
-                            </div>
-                            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                                <div class="blog-details">
-                                    <h3 class="blog-title">{{ $item->title }}</h3>
-                                </div>
-                                <div class="date">
-                                  <span class="blog-date">{{ $item->updated_at->format('d-M-Y') }}</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+          <div class="col-12">
+            <div class="table-responsive">
+              <table id="order-listing" class="table">
+                <thead>
+                  <tr class="bg-primary text-white">
+                    <th>#</th>
+                    <th>Image</th>
+                    <th>Title</th>
+                    <th>Date</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @foreach($data as $index => $item)
+                  <tr>
+                    <td>{{ $index + 1}}</td>
+                    <td>
+                      <div class="preview-thumbnail">
+                        <img src="{{ Storage::url($item->image) }}" alt="image" class="img-sm profile-pic"> 
+                      </div>
+                    </td>
+                    <td>{{ $item->title }}</td>
+                    <td>{{ $item->created_at->format('d-M-Y') }}</td>
+                    <td>
+                      <a href="{{ route('blogs.show', $item) }}" class="btn btn-icons btn-light">
+                        <span class="fa fa-eye fa-lg text-primary"></span></a>
+                    </td>
+                  </tr>
+                  @endforeach
+                </tbody>
+              </table>
             </div>
-          @endforeach
+            <!-- /.table-responsive -->
+          </div>
+          <!-- /.col -->
+
+          <!-- pagination -->
+          <nav class="col-12 d-flex justify-content-end mt-4">
+            {{ $data->appends($_GET)->links() }}
+          </nav>
+          <!-- /.col -->
         </div>
         <!-- /.row -->
       </div>

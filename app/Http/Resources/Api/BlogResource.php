@@ -19,7 +19,8 @@ class BlogResource extends JsonResource
           "id" => $this->id,
           "image" => Storage::url($this->image),
           "title" => $this->title,
-          "body" => $this->body, 
+          "body" => $this->body,
+          "date" => $this->created_at->format('d-M-Y') 
         ];
     }
 }

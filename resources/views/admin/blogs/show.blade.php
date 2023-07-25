@@ -27,7 +27,7 @@
                         </div>
                     </div>
                     <div class="col-md-12 mb-3">
-                        <p class="blog-date m-1">Date <b>{{ $blog->updated_at->format('d-M-Y') }}</b></p>
+                        <p class="blog-date m-1">Date <b>{{ $blog->created_at->format('d-M-Y') }}</b></p>
                     </div>
                     <div class="col-md-12">
                         <h2 class="blog-title mt-1"><b>{{ $blog->title }}</b></h2>
