@@ -59,7 +59,7 @@
                       </div>
                     </td>
                     <td>{{ $item->title }}</td>
-                    <td>{{ $item->created_at->format('d-M-Y') }}</td>
+                    <td>{{ $item->date }}</td>
                     <td>
                       <a href="{{ route('blogs.show', $item) }}" class="btn btn-icons btn-light">
                         <span class="fa fa-eye fa-lg text-primary"></span></a>

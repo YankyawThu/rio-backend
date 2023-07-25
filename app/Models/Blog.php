@@ -14,4 +14,9 @@ class Blog extends Model
     {
         $filter->apply($query);    
     }
+
+    public function getDateAttribute()
+    {
+        return $this->created_at->format('l d M, Y');
+    }
 }
