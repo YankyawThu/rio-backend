@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\BlogController;
+use App\Http\Controllers\Api\LeagueController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('blogs', [BlogController::class, 'index']);
 Route::get('blogs/{blog}', [BlogController::class, 'show']);
+Route::get('leagues', [LeagueController::class, 'index']);
