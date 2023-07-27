@@ -1,0 +1,76 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\CreateBannerRequest;
+use App\Models\Banner;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
+
+class BannerController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        //
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        return view('admin.banners.create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(CreateBannerRequest $request)
+    {
+        $data = $request->validated();
+        if($request->type == "advertisement") {
+            $data['image'] = Storage::putFileAs('banners', $request->file('image'), Str::uuid().'.jpg', ['visibility' => 'public']);
+        }
+
+        Banner::create($data);
+
+        return redirect()->route('banners.index');
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(Banner $banner)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Banner $banner)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, Banner $banner)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(Banner $banner)
+    {
+        //
+    }
+}

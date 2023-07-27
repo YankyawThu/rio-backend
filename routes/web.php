@@ -1,11 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\LeagueController;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Admin\BannerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,7 @@ Route::prefix(config('app.admin_prefix'))->group(function ()
 		Route::resource('users', UserController::class);
 		Route::resource('blogs', BlogController::class);
 		Route::resource('leagues', LeagueController::class);
+		Route::resource('banners', BannerController::class);
 	});
 
 });

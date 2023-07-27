@@ -45,6 +45,25 @@
       </div>
     </li>
 
+    <!-- Banner management -->
+    <li class="nav-item {{ active_segment(2, 'banners') }}">
+      <a class="nav-link" data-toggle="collapse" href="#banner-dropdown" aria-expanded="false" aria-controls="banner-dropdown">
+        <i class="menu-icon fa fa-image"></i>
+        <span class="menu-title">Manage Banner</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse {{ show_segment(2, 'banners') }}" id="banner-dropdown">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item">
+            <a class="nav-link {{ active_path('banners') }}" href="{{ route('banners.index') }}">Banner List</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{ active_path('banners/create') }}" href="{{ route('banners.create') }}">Add New Banner</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+
     <!-- Blog management -->
     <li class="nav-item {{ active_segment(2, 'blogs') }}">
       <a class="nav-link" data-toggle="collapse" href="#blog-dropdown" aria-expanded="false" aria-controls="blog-dropdown">

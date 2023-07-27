@@ -1,7 +1,7 @@
 <div class="form-group {{ $errors->has($name) ? 'has-danger' : '' }}">
   <label for="{{ $name }}">{{ $title }}</label>
 
-  <select class="form-control select2" id="{{ $name }}" name="{{ $name }}">
+  <select class="form-control select2" id="{{ $name }}" name="{{ $name }}" {{ isset($required) ? 'required' : '' }}>
     @foreach($objects as $object)
       <option 
         value="{{ $object['value'] }}"
