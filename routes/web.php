@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\LeagueController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\TeamController;
+use App\Http\Controllers\Admin\GameController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +40,8 @@ Route::prefix(config('app.admin_prefix'))->group(function ()
 		Route::resource('blogs', BlogController::class);
 		Route::resource('leagues', LeagueController::class);
 		Route::resource('teams', TeamController::class);
+		Route::get('league-teams', [TeamController::class,'teamsByLeagueId'])->name('leagues.teams');
+		Route::resource('games', GameController::class);
 	});
 
 });

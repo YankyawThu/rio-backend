@@ -92,4 +92,11 @@ class TeamController extends Controller
 
         return redirect()->route('teams.index');
     }
+
+    public function teamsByLeagueId(Request $request)
+    {
+        $data = Team::where('league_id', $request->league_id)->get();
+
+        return response()->json($data);
+    }
 }

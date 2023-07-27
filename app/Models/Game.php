@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class League extends Model
+class Game extends Model
 {
     use HasFactory, SoftDeletes;
 
@@ -15,10 +15,5 @@ class League extends Model
     public function scopeFilter($query, $filter) 
     {
         $filter->apply($query);    
-    }
-
-    public function teams()
-    {
-        return $this->hasMany(Team::class,'league_id');
     }
 }

@@ -120,6 +120,25 @@
         </ul>
       </div>
     </li>
+
+    <!-- Game management -->
+    <li class="nav-item {{ active_segment(2, 'games') }}">
+      <a class="nav-link" data-toggle="collapse" href="#game-dropdown" aria-expanded="false" aria-controls="game-dropdown">
+        <i class="menu-icon fa fa-futbol-o"></i>
+        <span class="menu-title">Manage Game</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse {{ show_segment(2, 'games') }}" id="game-dropdown">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item">
+            <a class="nav-link {{ active_path('games') }}" href="{{ route('games.index') }}">Game List</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{ active_path('games/create') }}" href="{{ route('games.create') }}">Add New Game</a>
+          </li>
+        </ul>
+      </div>
+    </li>
     
   </ul>
 </nav>
