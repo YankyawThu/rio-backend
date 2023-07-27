@@ -25,8 +25,8 @@ class GameRequest extends FormRequest
             'league_id' => 'required',
             'team_a_id' => 'required',
             'team_b_id' => 'required',
-            'stated_at' => 'nullable',
-            'description' => 'nullable'
+            'started_at' => 'required',
+            'description' => 'required'
         ];
     }
 }

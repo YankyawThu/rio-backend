@@ -37,11 +37,6 @@ class GameController extends Controller
     public function store(GameRequest $request)
     {
         $data = $request->validated();
-
-        if($request->file('image')) {
-            $data['image'] = Storage::putFileAs('games', $request->file('image'), Str::uuid().'.jpg', ['visibility' => 'public']);
-        }
-
         Game::create($data);
         
         return redirect()->route('games.index');
@@ -70,12 +65,6 @@ class GameController extends Controller
     public function update(GameRequest $request, Game $game)
     {
         $data = $request->validated();
-
-        if($request->file('image')) {
-            $data['image'] = Storage::putFileAs('games', $request->file('image'), Str::uuid().'.jpg', ['visibility' => 'public']);
-            Storage::delete($game->image);
-        }
-
         $game->update($data);
 
         return redirect()->route('games.index');

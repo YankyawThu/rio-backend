@@ -1,7 +1,8 @@
 @extends('admin.layouts.master')
 
 @section('plugin-css')
- 
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote-bs4.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{{ asset('assets/vendors/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css') }}">
 @stop
 
 @section('container')
@@ -62,9 +63,13 @@
                   @slot('name', 'started_at')
                   @slot('placeholder', 'Enter start date and time')
                   @slot('value','')
-                  @slot('autofocus', 'autofocus')
                   @slot('required', 'required')
                 @endcomponent
+
+                <div class="form-group">
+                  <label>Description</label>
+                  <textarea class="form-control" id="summernote" name="description" style="border: none;" required></textarea>
+                </div>
 
                 <input class="btn btn-primary" type="submit" value="Save"> 
               </fieldset>
@@ -83,11 +88,17 @@
 @endsection
 
 @section('custom-js')
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.16/dist/summernote-bs4.min.js"></script>
+<script src="{{ asset('assets/vendors/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js') }}"></script>
 <script>
   $(function(){
     
-    $('#started_at').datepicker({
-      format: 'yyyy-mm-dd'
+    $('#started_at').datetimepicker({
+      "allowInputToggle": true,
+      "showClose": true,
+      "showClear": true,
+      "showTodayButton": true,
+      "format": "YYYY-MM-DD HH:mm:ss",
     });
 
     getTeams($('#league_id').val());
@@ -96,6 +107,20 @@
       $('select[name="team_a_id"]').empty();
       $('select[name="team_b_id"]').empty();
       getTeams(this.value);
+    });
+
+    $('#summernote').summernote({
+        placeholder: 'Enter Content Details',
+        tabsize: 2,
+        height: 300,
+        toolbar: [
+          ['style', ['style']],
+          ['font', ['bold', 'underline', 'clear']],
+          ['color', ['color']],
+          ['para', ['ul', 'ol', 'paragraph']],
+          ['table', ['table']],
+          ['view', ['fullscreen', 'codeview', 'help']]
+        ]
     });
   });
 

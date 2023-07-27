@@ -16,4 +16,17 @@ class Game extends Model
     {
         $filter->apply($query);    
     }
+    public function league()
+    {
+        return $this->belongsTo(League::class, 'league_id');
+    }
+    public function teamA()
+    {
+        return $this->belongsTo(Team::class, 'team_a_id');
+    }
+
+    public function teamB()
+    {
+        return $this->belongsTo(Team::class, 'team_b_id');
+    }
 }
