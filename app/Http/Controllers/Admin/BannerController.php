@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Filters\BannerFilter;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\CreateBannerRequest;
 use App\Models\Banner;
@@ -14,9 +15,10 @@ class BannerController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(BannerFilter $filter)
     {
-        //
+        $data = Banner::filter($filter)->orderBy('id','desc')->paginate(30);
+        return view('admin.banners.index',compact('data'));
     }
 
     /**
