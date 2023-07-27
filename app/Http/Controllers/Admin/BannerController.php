@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Filters\BannerFilter;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\CreateBannerRequest;
+use App\Http\Requests\Admin\BannerRequest;
 use App\Models\Banner;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -32,11 +32,14 @@ class BannerController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(CreateBannerRequest $request)
+    public function store(BannerRequest $request)
     {
         $data = $request->validated();
+
         if($request->type == "advertisement") {
-            $data['image'] = Storage::putFileAs('banners', $request->file('image'), Str::uuid().'.jpg', ['visibility' => 'public']);
+            if($request->file('image')) {
+                $data['image'] = Storage::putFileAs('banners', $request->file('image'), Str::uuid().'.jpg', ['visibility' => 'public']);
+            }
         }
 
         Banner::create($data);
@@ -57,15 +60,26 @@ class BannerController extends Controller
      */
     public function edit(Banner $banner)
     {
-        //
+        return view('admin.banners.edit',compact('banner'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Banner $banner)
+    public function update(BannerRequest $request, Banner $banner)
     {
-        //
+        $data = $request->validated();
+        
+        if($banner->type == "advertisement") {
+            if($request->file('image')) {
+                $data['image'] = Storage::putFileAs('banners', $request->file('image'), Str::uuid().'.jpg', ['visibility' => 'public']);
+                Storage::delete($banner->image);
+            }
+        }
+
+        $banner->update($data);
+
+        return redirect()->route('banners.index');
     }
 
     /**
