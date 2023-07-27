@@ -101,6 +101,25 @@
         </ul>
       </div>
     </li>
+
+    <!-- Teams management -->
+    <li class="nav-item {{ active_segment(2, 'teams') }}">
+      <a class="nav-link" data-toggle="collapse" href="#team-dropdown" aria-expanded="false" aria-controls="team-dropdown">
+        <i class="menu-icon fa fa-soccer-ball-o"></i>
+        <span class="menu-title">Manage Team</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse {{ show_segment(2, 'teams') }}" id="team-dropdown">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item">
+            <a class="nav-link {{ active_path('teams') }}" href="{{ route('teams.index') }}">Team List</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{ active_path('teams/create') }}" href="{{ route('teams.create') }}">Add New Team</a>
+          </li>
+        </ul>
+      </div>
+    </li>
     
   </ul>
 </nav>

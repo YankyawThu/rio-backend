@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\LeagueController;
 use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\TeamController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,9 +35,10 @@ Route::prefix(config('app.admin_prefix'))->group(function ()
 		Route::get('/', [ DashboardController::class,'index' ])->name('admin.index');
 
 		Route::resource('users', UserController::class);
+		Route::resource('banners', BannerController::class);
 		Route::resource('blogs', BlogController::class);
 		Route::resource('leagues', LeagueController::class);
-		Route::resource('banners', BannerController::class);
+		Route::resource('teams', TeamController::class);
 	});
 
 });
