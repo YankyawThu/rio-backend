@@ -76,7 +76,6 @@ class GameController extends Controller
      */
     public function destroy(Game $game)
     {
-        Storage::delete($game->image);
         $game->delete();
 
         return redirect()->route('games.index');

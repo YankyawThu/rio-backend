@@ -6,6 +6,7 @@ use App\Filters\BannerFilter;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\BannerRequest;
 use App\Models\Banner;
+use App\Models\Game;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -26,7 +27,8 @@ class BannerController extends Controller
      */
     public function create()
     {
-        return view('admin.banners.create');
+        $games = Game::orderBy('id','desc')->get();
+        return view('admin.banners.create',compact('games'));
     }
 
     /**
@@ -87,7 +89,9 @@ class BannerController extends Controller
      */
     public function destroy(Banner $banner)
     {
-        Storage::delete($banner->image);
+        if($banner->image) {
+            Storage::delete($banner->image);
+        } 
         $banner->delete();
 
         return redirect()->route('banners.index');

@@ -95,7 +95,9 @@
                         <div class="form-group" id="match">
                           <label for="football_match_id">Select Match</label><br>
                           <select id="football_match_id" name="football_match_id" class="form-control select2" style="width: 100%">
-                            
+                            @foreach ($games as $game)
+                              <option value="{{ $game->id }}">{{ $game->teamA->name }} Vs {{ $game->teamB->name }} ({{ $game->started_at }})</option>
+                            @endforeach
                           </select> 
                         </div>
 
