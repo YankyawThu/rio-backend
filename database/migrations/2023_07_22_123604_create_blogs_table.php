@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('title');
             $table->longText('body');
             $table->string('image');
-            $table->timestamp('published_date');
-            $table->string('author_name');
+            $table->timestamp('published_date')->nullable();
+            $table->string('author_name')->nullable();
             $table->boolean('is_active')->default(1);
             $table->timestamps();
             //index

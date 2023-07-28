@@ -19,7 +19,3 @@ use App\Http\Controllers\Api\LeagueController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-
-Route::get('blogs', [BlogController::class, 'index']);
-Route::get('blogs/{blog}', [BlogController::class, 'show']);
-Route::get('leagues', [LeagueController::class, 'index']);
