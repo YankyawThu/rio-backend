@@ -53,7 +53,7 @@ class GameController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Game $Game)
+    public function edit(Game $game)
     {
         $leagues = League::all();
         return view('admin.games.edit',compact('game','leagues'));
