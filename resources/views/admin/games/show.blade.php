@@ -37,7 +37,7 @@
                                     <div class="card radius-15">
                                         <div class="card-body text-center">
                                             <div class="d-flex flex-column align-items-center text-center">
-                                                <img src="{{ Storage::url($game->teamA->image) }}" alt="Admin" class="rounded-circle" width="150">
+                                                <img src="{{ Storage::url($game->teamA->image) }}" alt="Admin" class="rounded-circle" width="200" height="200">
                                                 <div class="mt-3">
                                                   <h4>{{ $game->teamA->name }}</h4>
                                                 </div>
@@ -49,7 +49,7 @@
                                     <div class="card radius-15">
                                         <div class="card-body text-center">
                                             <div class="d-flex flex-column align-items-center text-center">
-                                                <img src="{{ Storage::url($game->teamB->image) }}" alt="Admin" class="rounded-circle" width="150">
+                                                <img src="{{ Storage::url($game->teamB->image) }}" alt="Admin" width="200" height="200">
                                                 <div class="mt-3">
                                                   <h4>{{ $game->teamB->name }}</h4>
                                                 </div>
