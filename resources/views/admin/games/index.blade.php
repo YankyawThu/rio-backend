@@ -55,8 +55,16 @@
                   @foreach($data as $index => $item)
                   <tr>
                     <td>{{ $index + 1}}</td>
-                    <td>{{ $item->teamA->name }}</td>
-                    <td>{{ $item->teamB->name }}</td>
+                    <td>
+                      <div class="preview-thumbnail">
+                        <img src="{{ Storage::url($item->teamA->image) }}" alt="image" class="img-sm profile-pic"> {{ $item->teamA->name }}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="preview-thumbnail">
+                        <img src="{{ Storage::url($item->teamB->image) }}" alt="image" class="img-sm profile-pic"> {{ $item->teamB->name }}
+                      </div>
+                    </td>
                     <td>{{ $item->league->name }}</td>
                     <td>{{ $item->started_at }}</td>
                     <td>{{ $item->updated_at }}</td>
@@ -66,6 +74,9 @@
                       </a>
                       <button class="btn btn-light" data-toggle="modal" data-target="#delete-game-{{$item->id}}"><span class="fa fa-trash fa-lg text-danger"></span>
                       </button>
+                      <a href="{{ route('games.show', $item) }}" class="btn btn-icons btn-light">
+                        <span class="fa fa-eye fa-lg text-primary"></span>
+                      </a>
   
                       <!-- Delete Modal -->
                       <div class="modal fade" id="delete-game-{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="Add New" aria-hidden="true">

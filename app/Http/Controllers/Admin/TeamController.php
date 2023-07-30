@@ -50,7 +50,7 @@ class TeamController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(League $league)
+    public function show(Team $team)
     {
         //
     }

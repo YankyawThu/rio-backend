@@ -45,9 +45,9 @@ class GameController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(League $league)
+    public function show(Game $game)
     {
-        //
+        return view('admin.games.show', compact('game'));
     }
 
     /**

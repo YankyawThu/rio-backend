@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('game_live_links', function (Blueprint $table) {
+        Schema::create('game_links', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('game_id');
             $table->string('name');
-            $table->text('link');
+            $table->text('url');
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('game_live_links');
+        Schema::dropIfExists('game_links');
     }
 };

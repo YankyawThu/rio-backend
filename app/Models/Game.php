@@ -29,4 +29,9 @@ class Game extends Model
     {
         return $this->belongsTo(Team::class, 'team_b_id');
     }
+
+    public function links()
+    {
+        return $this->hasMany(GameLink::class,'game_id');
+    }
 }
