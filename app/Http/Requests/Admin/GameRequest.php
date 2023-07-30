@@ -27,7 +27,6 @@ class GameRequest extends FormRequest
             'team_b_id' => 'required',
             'started_at' => 'required',
             'description' => 'required',
-            'live_links' => 'required'
         ];
     }
 }

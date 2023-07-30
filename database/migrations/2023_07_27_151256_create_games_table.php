@@ -18,7 +18,6 @@ return new class extends Migration
             $table->unsignedInteger('team_b_id');
             $table->longText('description')->nullable();
             $table->timestamp('started_at')->nullable();
-            $table->text('live_links')->nullable();
             $table->boolean('is_active')->default(1);
             $table->timestamps();
             $table->softDeletes();

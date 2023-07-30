@@ -72,11 +72,6 @@
                   <textarea class="form-control" id="summernote" name="description" style="border: none;" required>{{ $game->description }}</textarea>
                 </div>
 
-                <div class="form-group">
-                  <label>Live Links</label>
-                  <textarea class="form-control" id="live-link" name="live_links" placeholder="Link 1,Link 2,Link 3,..." required>{{ $game->live_links }}</textarea>
-                </div>
-
                 <input class="btn btn-primary" type="submit" value="Save"> 
               </fieldset>
             </form>
