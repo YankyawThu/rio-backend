@@ -33,24 +33,26 @@
                         <div class="tab-content">  
                           <div class="tab-pane active" id="game-details" role="tabpanel">  
                             <div class="row mt-3">
-                                <div class="col">
+                                <div class="col-md-6">
                                     <div class="card radius-15">
                                         <div class="card-body text-center">
-                                            <div class="p-2 radius-15">
-                                                <h4 class="mb-0 mt-2">Team A</h4>
-                                                <img src="{{ Storage::url($game->teamA->image) }}" class="shadow p-1 bg-white" alt="">
-                                                <h5 class="mb-0 mt-2">{{ $game->teamA->name }}</h5>
+                                            <div class="d-flex flex-column align-items-center text-center">
+                                                <img src="{{ Storage::url($game->teamA->image) }}" alt="Admin" class="rounded-circle" width="150">
+                                                <div class="mt-3">
+                                                  <h4>{{ $game->teamA->name }}</h4>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col">
+                                <div class="col-md-6">
                                     <div class="card radius-15">
                                         <div class="card-body text-center">
-                                            <div class="p-2 radius-15">
-                                                <h4 class="mb-0 mt-2">Team B</h4>
-                                                <img src="{{ Storage::url($game->teamB->image) }}" class="shadow p-1 bg-white" alt="">
-                                                <h5 class="mb-0 mt-2">{{ $game->teamB->name }}</h5>
+                                            <div class="d-flex flex-column align-items-center text-center">
+                                                <img src="{{ Storage::url($game->teamB->image) }}" alt="Admin" class="rounded-circle" width="150">
+                                                <div class="mt-3">
+                                                  <h4>{{ $game->teamB->name }}</h4>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
