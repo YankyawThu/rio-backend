@@ -108,3 +108,11 @@ if (! function_exists('split_daterange')) {
 		return ['from' => $from, 'to' => $to];
 	}
 }
+
+function resSuccess($data = null, $code = 200, $msg = 'success') {
+	return response()->json([
+		"result" => $data,
+		"statusCode" => $code,
+		"message" => $msg,
+	], $code);
+}
