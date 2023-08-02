@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class Blog extends JsonResource
+class Team extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,13 +15,10 @@ class Blog extends JsonResource
      */
     public function toArray($request)
     {
-        $date = date_create($this->published_date);
         return [
             'id' => $this->id,
-            'image' => asset($this->image),
-            'title' => $this->title,
-            'body' => $this->body,
-            'publishedDate' => date_format($date, 'l d M, Y')
+            'name' => $this->name,
+            'logo' => asset($this->image),
         ];
     }
 }

@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class Blog extends JsonResource
+class Game extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,13 +15,13 @@ class Blog extends JsonResource
      */
     public function toArray($request)
     {
-        $date = date_create($this->published_date);
+        $date = date_create($this->started_at);
         return [
             'id' => $this->id,
-            'image' => asset($this->image),
-            'title' => $this->title,
-            'body' => $this->body,
-            'publishedDate' => date_format($date, 'l d M, Y')
+            'startedTime' => date_format($date, 'h:i A M d'),
+            'teamA' => new Team($this->teamA),
+            'teamB' => new Team($this->teamB),
+            'league' => new League($this->league)
         ];
     }
 }

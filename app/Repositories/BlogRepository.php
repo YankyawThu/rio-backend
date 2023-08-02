@@ -12,7 +12,7 @@ class BlogRepository extends BaseRepository
         $this->model = $model;
     }
 
-    public function get($page)
+    public function index($page)
     {
        $res = $this->getPaginated($page);
        return $res;

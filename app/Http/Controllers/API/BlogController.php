@@ -17,7 +17,7 @@ class BlogController extends Controller
 
     public function index(Request $request)
     {
-        $res = $this->blogService->get($request->nextId);
+        $res = $this->blogService->index($request->nextId);
         return resSuccess(new BlogCollection($res));
     }
 

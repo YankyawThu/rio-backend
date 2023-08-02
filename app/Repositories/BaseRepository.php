@@ -19,6 +19,11 @@ abstract class BaseRepository
         return $this->model->orderBy('id', 'DESC')->get();
     }
 
+    public function getLimit($limit)
+    {
+        return $this->model->orderBy('id', 'DESC')->take($limit)->get();
+    }
+
     public function getById($id)
     {
         return $this->model->where('id', $id)->first();

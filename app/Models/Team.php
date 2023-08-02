@@ -20,4 +20,14 @@ class Team extends Model
     {
         return $this->belongsTo(League::class, 'league_id');
     }
+
+    public function gamesByTeamA()
+    {
+        return $this->hasMany(Game::class, 'team_a_id');
+    }
+
+    public function gamesByTeamB()
+    {
+        return $this->hasMany(Game::class, 'team_b_id');
+    }
 }
