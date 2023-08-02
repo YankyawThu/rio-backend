@@ -16,4 +16,10 @@ class BlogService
         $res = $this->blogRepo->get($page);
         return $res;
     }
+
+    public function show($id)
+    {
+        $res = $this->blogRepo->show($id);
+        return $res;
+    }
 }

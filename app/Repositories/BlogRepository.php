@@ -17,4 +17,10 @@ class BlogRepository extends BaseRepository
        $res = $this->getPaginated($page);
        return $res;
     }
+
+    public function show($id)
+    {
+       $res = $this->getById($id);
+       return $res;
+    }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Services\BlogService;
 use App\Http\Resources\BlogCollection;
+use App\Http\Resources\Blog;
 
 class BlogController extends Controller
 {
@@ -18,5 +19,14 @@ class BlogController extends Controller
     {
         $res = $this->blogService->get($request->nextId);
         return resSuccess(new BlogCollection($res));
+    }
+
+    public function show($id)
+    {
+        $res = $this->blogService->show($id);
+        if(!$res) {
+            return resNotFound();
+        }
+        return resSuccess(new Blog($res));
     }
 }

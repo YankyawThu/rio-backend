@@ -6,3 +6,5 @@ use App\Http\Controllers\Api\BlogController;
 
 
 Route::get('blog', [BlogController::class, 'index']);
+Route::get('blog/{id}', [BlogController::class, 'show']);
+Route::get('home', [HomeController::class, 'index']);
