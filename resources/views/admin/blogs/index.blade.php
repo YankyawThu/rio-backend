@@ -55,7 +55,7 @@
                     <td>{{ $index + 1}}</td>
                     <td>
                       <div class="preview-thumbnail">
-                        <img src="{{ Storage::url($item->image) }}" alt="image" class="img-sm profile-pic"> 
+                        <img src="{{ asset(Storage::url($item->image)) }}" alt="image" class="img-sm profile-pic"> 
                       </div>
                     </td>
                     <td>{{ $item->title }}</td>

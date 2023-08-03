@@ -60,7 +60,7 @@
                     <td>
                       <div class="preview-thumbnail">
                         @if($item->type == "advertisement")
-                        <img src="{{ Storage::url($item->image) }}" alt="image" class="img-sm profile-pic">
+                        <img src="{{ asset(Storage::url($item->image)) }}" alt="image" class="img-sm profile-pic">
                         @else
                         @endif 
                       </div>
