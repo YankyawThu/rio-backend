@@ -12,15 +12,25 @@ class GameRepository extends BaseRepository
         $this->model = $model;
     }
 
+    public function index($type, $page = null)
+    {
+        if($type) {
+            $res = $this->model->where('started_at', '<=', date('Y-m-d H:i:s'))->orderBy('started_at', 'desc')->paginate($page ? $page : config('enums.itemPerPage'));
+        }
+        else $res = $this->model->where('started_at', '>', date('Y-m-d H:i:s'))->paginate($page ? $page : config('enums.itemPerPage'));
+        return $res;
+        
+    }
+
     public function nowPlayingWithLimit($limit)
     {
-       $res = $this->model->where('started_at' , '<=', date('Y-m-d H:i:s'))->orderBy('started_at', 'desc')->take($limit)->get();
+       $res = $this->model->where('started_at', '<=', date('Y-m-d H:i:s'))->orderBy('started_at', 'desc')->take($limit)->get();
        return $res;
     }
 
     public function upComingWithLimit($limit)
     {
-       $res = $this->model->where('started_at' , '>', date('Y-m-d H:i:s'))->take($limit)->get();
+       $res = $this->model->where('started_at', '>', date('Y-m-d H:i:s'))->take($limit)->get();
        return $res;
     }
 }

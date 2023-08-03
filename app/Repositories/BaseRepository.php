@@ -11,7 +11,6 @@ abstract class BaseRepository
     public function __construct(Model $model)
     {
         $this->model = $model;
-        $this->nextId = 0;
     }
 
     public function getAll()

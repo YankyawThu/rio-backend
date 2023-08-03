@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class GameCollection extends ResourceCollection
+class GameNoPaginateCollection extends ResourceCollection
 {
     /**
      * Transform the resource collection into an array.
@@ -15,9 +15,6 @@ class GameCollection extends ResourceCollection
 
     public function __construct($resource)
     {
-        $this->pagination = [
-            'nextPage' => $resource->currentPage() < $resource->lastPage() ? $resource->currentPage() + 1 : null,
-        ];
         // $resource = $resource->getCollection();
 
         parent::__construct($resource);
@@ -25,9 +22,6 @@ class GameCollection extends ResourceCollection
 
     public function toArray($request)
     {
-        return [
-            'data' => $this->collection,
-            'pagination' => $this->pagination,
-        ];
+        return $this->collection;
     }
 }

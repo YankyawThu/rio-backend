@@ -9,7 +9,7 @@ use App\Repositories\LeagueRepository;
 use App\Http\Resources\BlogNoPaginateCollection;
 use App\Http\Resources\BannerCollection;
 use App\Http\Resources\LeagueCollection;
-use App\Http\Resources\GameCollection;
+use App\Http\Resources\GameNoPaginateCollection;
 
 class HomeRepository 
 {
@@ -31,8 +31,8 @@ class HomeRepository
         $data = [
             'banners' => new BannerCollection($banners),
             'leagues' => new LeagueCollection($leagues),
-            'nowPlayingMatches' => new GameCollection($nowGames),
-            'upComingMatches' => new GameCollection($upGames),
+            'nowPlayingMatches' => new GameNoPaginateCollection($nowGames),
+            'upComingMatches' => new GameNoPaginateCollection($upGames),
             'latestNews' => new BlogNoPaginateCollection($blogs)
         ];
         return $data;

@@ -117,7 +117,14 @@ function resSuccess($data = null, $code = 200, $msg = 'success') {
 	], $code);
 }
 
-function resNotFound($code = 404, $msg = 'Not Found') {
+function resNotFound($msg = 'Not Found', $code = 404) {
+	return response()->json([
+		"statusCode" => $code,
+		"message" => $msg,
+	], $code);
+}
+
+function resBadRequest($msg = 'Bad Request', $code = 400) {
 	return response()->json([
 		"statusCode" => $code,
 		"message" => $msg,
