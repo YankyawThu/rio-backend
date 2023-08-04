@@ -18,7 +18,7 @@ class Banner extends JsonResource
         $date = date_create($this->created_at);
         return [
             'id' => $this->id,
-            'image' => asset($this->image),
+            'image' => asset(Storage::url($this->image)),
             'title' => $this->title,
             'createdDate' => date_format($date, 'l d M, Y')
         ];

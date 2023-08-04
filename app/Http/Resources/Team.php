@@ -18,7 +18,7 @@ class Team extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'logo' => asset($this->image),
+            'logo' => asset(Storage::url($this->image)),
         ];
     }
 }

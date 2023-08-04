@@ -18,7 +18,7 @@ class League extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
-            'image' => asset($this->image),
+            'image' => asset(Storage::url($this->image)),
         ];
     }
 }

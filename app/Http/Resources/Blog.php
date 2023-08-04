@@ -18,7 +18,7 @@ class Blog extends JsonResource
         $date = date_create($this->published_date);
         return [
             'id' => $this->id,
-            'image' => asset($this->image),
+            'image' => asset(Storage::url($this->image)),
             'title' => $this->title,
             'body' => $this->body,
             'publishedDate' => date_format($date, 'l d M, Y')
