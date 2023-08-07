@@ -12,19 +12,27 @@ class GameRepository extends BaseRepository
         $this->model = $model;
     }
 
-    public function index($type, $page = null)
+    public function index($type, $league = null)
     {
         if($type) {
-            $res = $this->model->where('started_at', '<=', date('Y-m-d H:i:s'))->orderBy('started_at', 'desc')->paginate();
+            if($league) {
+                $res = $this->model->where('started_at', '<=', date('Y-m-d H:i:s'))->where('league_id', $league)->orderByDesc('started_at')->paginate();
+            }
+            else $res = $this->model->where('started_at', '<=', date('Y-m-d H:i:s'))->orderByDesc('started_at')->paginate();
         }
-        else $res = $this->model->where('started_at', '>', date('Y-m-d H:i:s'))->paginate();
+        else {
+            if($league) {
+                $res = $this->model->where('started_at', '>', date('Y-m-d H:i:s'))->where('league_id', $league)->orderByDesc('started_at')->paginate();
+            }
+            else $res = $this->model->where('started_at', '>', date('Y-m-d H:i:s'))->orderByDesc('started_at')->paginate();
+        }
         return $res;
         
     }
 
     public function nowPlayingWithLimit($limit)
     {
-       $res = $this->model->where('started_at', '<=', date('Y-m-d H:i:s'))->orderBy('started_at', 'desc')->take($limit)->get();
+       $res = $this->model->where('started_at', '<=', date('Y-m-d H:i:s'))->orderByDesc('started_at')->take($limit)->get();
        return $res;
     }
 

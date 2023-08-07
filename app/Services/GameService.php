@@ -11,9 +11,9 @@ class GameService
         $this->gameRepo = $gameRepo;
     }
 
-    public function index($type)
+    public function index($type, $league)
     {
-        $res = $this->gameRepo->index($type);
+        $res = $this->gameRepo->index($type, $league);
         return $res;
     }
 
