@@ -11,9 +11,9 @@ class BlogService
         $this->blogRepo = $blogRepo;
     }
 
-    public function index($page)
+    public function index()
     {
-        $res = $this->blogRepo->index($page);
+        $res = $this->blogRepo->index();
         return $res;
     }
 
