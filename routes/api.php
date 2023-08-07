@@ -10,4 +10,5 @@ use App\Http\Controllers\Api\GameController;
 Route::get('blog', [BlogController::class, 'index']);
 Route::get('blog/{id}', [BlogController::class, 'show']);
 Route::get('game', [GameController::class, 'index']);
+Route::get('game/{id}', [GameController::class, 'show']);
 Route::get('home', [HomeController::class, 'index']);

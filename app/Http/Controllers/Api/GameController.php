@@ -29,4 +29,13 @@ class GameController extends Controller
         $res = $this->gameService->index($type);
         return resSuccess(new GameCollection($res));
     }
+    
+    public function show($id)
+    {
+        $res = $this->gameService->show($id);
+        if(!$res) {
+            return resNotFound();
+        }
+        return resSuccess(new Game($res));
+    }
 }
