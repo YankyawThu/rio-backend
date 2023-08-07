@@ -26,8 +26,7 @@ class GameController extends Controller
             return resBadRequest($message);
         }
         $type = $request->type;
-        $page = $request->page;
-        $res = $this->gameService->index($type, $page);
+        $res = $this->gameService->index($type);
         return resSuccess(new GameCollection($res));
     }
 }

@@ -15,9 +15,9 @@ class GameRepository extends BaseRepository
     public function index($type, $page = null)
     {
         if($type) {
-            $res = $this->model->where('started_at', '<=', date('Y-m-d H:i:s'))->orderBy('started_at', 'desc')->paginate($page ? $page : config('enums.itemPerPage'));
+            $res = $this->model->where('started_at', '<=', date('Y-m-d H:i:s'))->orderBy('started_at', 'desc')->paginate();
         }
-        else $res = $this->model->where('started_at', '>', date('Y-m-d H:i:s'))->paginate($page ? $page : config('enums.itemPerPage'));
+        else $res = $this->model->where('started_at', '>', date('Y-m-d H:i:s'))->paginate();
         return $res;
         
     }
