@@ -1,5 +1,6 @@
 <?php
 
 return [
-    'itemPerPage' => 10
+    'itemPerPage' => 10,
+    'avgGameduration' => 100 //minutes
 ];

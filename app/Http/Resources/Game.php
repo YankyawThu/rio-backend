@@ -21,13 +21,13 @@ class Game extends JsonResource
         $min = round(($to_time - $from_time) / 60);
         return [
             'id' => $this->id,
-            'live' => $min > 100 ? 0 : 1,
+            'live' => $min > config('enums.avgGameduration') ? 0 : 1,
             'startedTime' => date_format($date, 'h:i A M d'),
             'teamA' => new Team($this->teamA),
             'teamB' => new Team($this->teamB),
             'league' => new League($this->league),
             'summary' => $this->description,
-            'liveLinks' => $min > 100 ? [] : new LinkCollection($this->links)
+            'liveLinks' => $min > config('enums.avgGameduration') ? [] : new LinkCollection($this->links)
         ];
     }
 }
