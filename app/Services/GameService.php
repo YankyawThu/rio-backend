@@ -22,4 +22,10 @@ class GameService
         $res = $this->gameRepo->show($id);
         return $res;
     }
+
+    public function result($date)
+    {
+        $res = $this->gameRepo->result($date);
+        return $res;
+    }
 }

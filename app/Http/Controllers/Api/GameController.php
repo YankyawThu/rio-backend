@@ -39,4 +39,16 @@ class GameController extends Controller
         }
         return resSuccess(new Game($res));
     }
+
+    public function result(Request $request)
+    {
+        $validator = $this->verify($request, 'api.gameResult');
+        if($validator->fails()) {
+            $message = $validator->errors()->first();
+            return resBadRequest($message);
+        }
+        $date = $request->date;
+        $res = $this->gameService->result($date);
+        return resSuccess(new GameCollection($res));
+    }
 }
