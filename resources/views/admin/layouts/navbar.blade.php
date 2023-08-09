@@ -2,9 +2,10 @@
 
   <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
     <a class="navbar-brand brand-logo" href="{{ route('admin.index') }}">
-      <img src="{{ asset('assets/images/logo.svg') }}" alt="logo" /> </a>
-    <a class="navbar-brand brand-logo-mini" href="{{ route('admin.index') }}">
-      <img src="{{ asset('assets/images/logo-mini.svg') }}" alt="logo" /> </a>
+      {{-- <img src="{{ asset('assets/images/logo.svg') }}" alt="logo" /> --}}
+    </a>
+    {{-- <a class="navbar-brand brand-logo-mini" href="{{ route('admin.index') }}">
+      <img src="{{ asset('assets/images/logo-mini.svg') }}" alt="logo" /> </a> --}}
   </div>
 
   <div class="navbar-menu-wrapper d-flex align-items-center">
@@ -12,22 +13,22 @@
       <span class="mdi mdi-menu"></span>
     </button>
     <ul class="navbar-nav navbar-nav-left header-links d-none d-md-flex">
-      <li class="nav-item">
+      {{-- <li class="nav-item">
         <a href="#" class="nav-link">Schedule
           <span class="badge badge-primary ml-1">New</span>
         </a>
-      </li>
+      </li> --}}
       <li class="nav-item active">
         <a href="#" class="nav-link">
           <i class="mdi mdi-elevation-rise"></i>Reports</a>
       </li>
-      <li class="nav-item">
+      {{-- <li class="nav-item">
         <a href="#" class="nav-link">
           <i class="mdi mdi-bookmark-plus-outline"></i>Score</a>
-      </li>
+      </li> --}}
     </ul>
     <ul class="navbar-nav navbar-nav-right">
-      <li class="nav-item dropdown">
+      {{-- <li class="nav-item dropdown">
         <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
           <i class="mdi mdi-file-outline"></i>
           <span class="count">7</span>
@@ -107,16 +108,16 @@
         <a class="nav-link" href="#">
           <i class="mdi mdi-tune"></i>
         </a>
-      </li>
+      </li> --}}
 
       <!-- Profile nav -->
       <li class="nav-item dropdown d-none d-xl-inline-block">
         <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
           <span class="profile-text">{{ Auth::user()->name }}</span>
-          <img class="img-xs rounded-circle" src="{{ avatar_path(Auth::user()->image) }}" alt="Profile image"> 
+          <img class="img-xs rounded-circle avatar" src="{{ asset('assets/images/avatar.png') }}" alt="Profile image"> 
         </a>
-        <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
-          <a class="dropdown-item p-0">
+        <div class="dropdown-menu dropdown-menu-right navbar-dropdown cus-navbar-dropdown" aria-labelledby="UserDropdown">
+          {{-- <a class="dropdown-item p-0">
             <div class="d-flex border-bottom">
               <div class="py-3 px-4 d-flex align-items-center justify-content-center">
                 <i class="mdi mdi-bookmark-plus-outline mr-0 text-gray"></i>
@@ -131,7 +132,7 @@
           </a>
           <a class="dropdown-item mt-2"> Manage Accounts </a>
           <a class="dropdown-item"> Change Password </a>
-          <a class="dropdown-item"> Check Inbox </a>
+          <a class="dropdown-item"> Check Inbox </a> --}}
 
           <!-- Logout -->
           <a href="{{ route('logout') }}" class="dropdown-item"

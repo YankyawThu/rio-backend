@@ -4,18 +4,22 @@
       <div class="nav-link">
         <div class="user-wrapper">
           <div class="profile-image">
-            <img src="{{ avatar_path(Auth::user()->image) }}" alt="profile image"> </div>
-          <div class="text-wrapper">
+            <img class="avatar-lg" src="{{ asset('assets/images/avatar.png') }}" alt="profile image"> </div>
+          {{-- <div class="text-wrapper">
             <p class="profile-name">{{ Auth::user()->name }}</p>
             <div>
               <small class="designation text-muted">{{ Auth::user()->role->name }}</small>
               <span class="status-indicator online"></span>
             </div>
-          </div>
+          </div> --}}
         </div>
         {{-- <button class="btn btn-success btn-block">New Project
           <i class="mdi mdi-plus"></i>
         </button> --}}
+        <div class="role">
+          <small class="designation text-muted">{{ Auth::user()->role->name }}</small>
+          <span class="status-indicator online"></span>
+        </div>
       </div>
     </li>
 

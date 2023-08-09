@@ -1,0 +1,30 @@
+.cus-navbar-dropdown {
+    padding: 10px 0 !important;
+}
+
+.avatar {
+    width: 40px;
+    height: 30px;
+}
+
+.user-wrapper {
+    margin-bottom: 0 !important;
+}
+
+.profile-image {
+    width: auto !important;
+    height: auto !important;
+}
+
+.avatar-lg {
+    width: 80px;
+    height: 60px;
+}
+
+.role {
+    padding: 15px 0;
+}
+
+.sidebar {
+    margin-top: -20px;
+}

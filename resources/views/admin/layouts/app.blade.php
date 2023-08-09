@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Star Admin Premium Bootstrap Admin Dashboard Template</title>
+    <title>Rio Sports</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{ asset('assets/vendors/iconfonts/mdi/css/materialdesignicons.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/vendors/iconfonts/puse-icons-feather/feather.css') }}">
@@ -22,6 +22,7 @@
     <!-- Layout styles -->
     <link rel="stylesheet" href="{{ asset('assets/css/demo_1/style.css') }}">
     <!-- End Layout styles -->
+    <link rel="stylesheet" href="{{ asset('assets/css/my.css') }}">
     <link rel="shortcut icon" href="{{ asset('assets/images/favicon.png') }}" /> </head>
   <body>
     <div class="container-scroller">
