@@ -56,7 +56,7 @@
                       <input name="team_a_score" id="team_a_score" type="number" class="form-control goals-input">
                     </div>
                   </div>
-                  <div class="col-md-1 versus-form">
+                  <div class="col-md-2 versus-form">
                     <div class="">
                       <label for="team-a">VS</label>
                     </div>
