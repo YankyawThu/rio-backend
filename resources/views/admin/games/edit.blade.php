@@ -53,7 +53,7 @@
                   <div class="col-md-1">
                     <div class="form-group goals-form">
                       <label for="team-a">A Score</label>
-                      <input name="team_a_score" id="team_a_score" type="number" class="form-control goals-input">
+                      <input name="team_a_score" id="team_a_score" value="{{ $game->team_a_score }}" type="number" class="form-control goals-input">
                     </div>
                   </div>
                   <div class="col-md-2 versus-form">
@@ -64,7 +64,7 @@
                   <div class="col-md-1">
                     <div class="form-group goals-form">
                       <label for="team-a">B Score</label>
-                      <input name="team_b_score" id="team_b_score" type="number" class="form-control goals-input">
+                      <input name="team_b_score" id="team_b_score" value="{{ $game->team_b_score }}" type="number" class="form-control goals-input">
                     </div>
                   </div>
                   <div class="col-md-4">
@@ -152,6 +152,7 @@
         type: "GET",
         data: {"league_id" : league_id},
           success:function(data){
+            console.log(data)
             $.each(data, function(key, value){
               var selectedTeamA = value.id == old_team_a_id ? "selected" : '';
               var selectedTeamB = value.id == old_team_b_id ? "selected" : '';
