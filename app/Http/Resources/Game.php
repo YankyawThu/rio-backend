@@ -22,6 +22,10 @@ class Game extends JsonResource
         return [
             'id' => $this->id,
             'live' => $min > config('enums.avgGameduration') ? 0 : 1,
+            'score' => [
+                'teamA' => $this->team_a_score,
+                'teamb' => $this->team_b_score
+            ],
             'startedTime' => date_format($date, 'h:i A M d'),
             'teamA' => new Team($this->teamA),
             'teamB' => new Team($this->teamB),

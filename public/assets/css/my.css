@@ -28,3 +28,18 @@
 .sidebar {
     margin-top: -20px;
 }
+
+.goals-form {
+    text-align: center;
+}
+
+.goals-input {
+    padding: 28px 0 !important;
+    text-align: center;
+}
+
+.versus-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

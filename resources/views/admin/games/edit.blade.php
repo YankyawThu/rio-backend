@@ -43,14 +43,31 @@
                 @endcomponent
 
                 <div class="row">
-                  <div class="col-md-6">
+                  <div class="col-md-4">
                     <div class="form-group">
                       <label for="team-a">Team A</label>
                       <select name="team_a_id" id="team_a_id" class="form-control select2">
                       </select>
                     </div>
                   </div>
-                  <div class="col-md-6">
+                  <div class="col-md-1">
+                    <div class="form-group goals-form">
+                      <label for="team-a">A Score</label>
+                      <input name="team_a_score" id="team_a_score" type="number" class="form-control goals-input">
+                    </div>
+                  </div>
+                  <div class="col-md-1 versus-form">
+                    <div class="">
+                      <label for="team-a">VS</label>
+                    </div>
+                  </div>
+                  <div class="col-md-1">
+                    <div class="form-group goals-form">
+                      <label for="team-a">B Score</label>
+                      <input name="team_b_score" id="team_b_score" type="number" class="form-control goals-input">
+                    </div>
+                  </div>
+                  <div class="col-md-4">
                     <div class="form-group">
                       <label for="team-b">Team B</label>
                       <select name="team_b_id" id="team_b_id" class="form-control select2">
