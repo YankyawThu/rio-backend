@@ -31,7 +31,7 @@
                     <div class="col-12 my-3">
                         <div class="row review">
                             <div class="col-2">
-                                IOS Review
+                                IOS Under Review
                             </div>
                             <div class="col-10 setting-radio-layout">
                                 <div class="form-check">
@@ -51,7 +51,7 @@
                 
                         <div class="row review">
                             <div class="col-2">
-                                Android Review
+                                Android Under Review
                             </div>
                             <div class="col-10 setting-radio-layout">
                                 <div class="form-check">
