@@ -72,7 +72,7 @@
                 </div>
             </fieldset>
 
-            <input class="btn btn-primary" type="submit" value="Save"> 
+            <input class="btn btn-success" type="submit" value="Save"> 
         </form>
       </div>
       <!-- /.card-body -->

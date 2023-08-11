@@ -41,7 +41,7 @@
             <div class="table-responsive">
               <table id="order-listing" class="table">
                 <thead>
-                  <tr class="bg-primary text-white">
+                  <tr class="bg-success text-white">
                     <th>#</th>
                     <th>Image</th>
                     <th>Title</th>

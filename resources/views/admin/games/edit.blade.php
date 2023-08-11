@@ -89,7 +89,7 @@
                   <textarea class="form-control" id="summernote" name="description" style="border: none;" required>{{ $game->description }}</textarea>
                 </div>
 
-                <input class="btn btn-primary" type="submit" value="Save"> 
+                <input class="btn btn-success" type="submit" value="Save"> 
               </fieldset>
             </form>
           </div>

@@ -3,8 +3,8 @@
     <li class="nav-item nav-profile">
       <div class="nav-link">
         <div class="user-wrapper">
-          <div class="profile-image">
-            <img class="avatar-lg" src="{{ asset('assets/images/avatar.png') }}" alt="profile image"> </div>
+          <div class="">
+            <img class="avatar-lg" src="{{ asset('assets/images/logo.png') }}" alt="profile image"> </div>
           {{-- <div class="text-wrapper">
             <p class="profile-name">{{ Auth::user()->name }}</p>
             <div>

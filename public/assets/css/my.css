@@ -17,16 +17,12 @@
 }
 
 .avatar-lg {
-    width: 80px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
 }
 
 .role {
     padding: 15px 0;
-}
-
-.sidebar {
-    margin-top: -20px;
 }
 
 .goals-form {
@@ -51,4 +47,18 @@
 
 .setting-radio-layout {
     display: flex;
+}
+
+.btn-success {
+    background-color: #02A552;
+    border-color: #02A552;
+}
+
+.bg-success {
+    background-color: #4ab37e !important;
+    border-color: #02A552;
+}
+
+.navbar.default-layout {
+    background: linear-gradient(120deg, #02A552, #02A552, #39b475) !important;
 }

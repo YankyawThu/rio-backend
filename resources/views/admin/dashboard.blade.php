@@ -91,7 +91,7 @@
               <p class="mb-0 ml-2 text-muted">Product</p>
             </div>
             <div class="d-flex align-items-center">
-              <span class="dot-indicator bg-primary"></span>
+              <span class="dot-indicator bg-success"></span>
               <p class="mb-0 ml-2 text-muted">Resources</p>
             </div>
           </div>

@@ -99,7 +99,7 @@
                                                 @slot('required', 'required')
                                             @endcomponent
 
-                                            <input class="btn btn-primary" type="submit" value="Save"> 
+                                            <input class="btn btn-success" type="submit" value="Save"> 
                                         </fieldset>
                                     </form>
                                 </div>
@@ -144,7 +144,7 @@
                                                         </div>
                                                         <div class="modal-footer">
                                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                                                            <button type="submit" class="btn btn-primary">Yes</button>
+                                                            <button type="submit" class="btn btn-success">Yes</button>
                                                         </div>
                                                         </form>
                                                     </div>
@@ -192,7 +192,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-            <button type="submit" class="btn btn-primary">Yes</button>
+            <button type="submit" class="btn btn-success">Yes</button>
           </div>
         </form>
       </div>
