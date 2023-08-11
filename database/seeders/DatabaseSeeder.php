@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             UsersTableSeeder::class,
             RolesTableSeeder::class,
             BlogTableSeeder::class,
+            SettingTableSeeder::class,
         ]);
     }
 }

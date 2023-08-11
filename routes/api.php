@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\BlogController;
 use App\Http\Controllers\Api\HomeController;
 use App\Http\Controllers\Api\GameController;
+use App\Http\Controllers\Api\SettingController;
 
 
 Route::get('blog', [BlogController::class, 'index']);
@@ -13,3 +14,4 @@ Route::get('game', [GameController::class, 'index']);
 Route::get('game/{id}', [GameController::class, 'show']);
 Route::get('home', [HomeController::class, 'index']);
 Route::get('result', [GameController::class, 'result']);
+Route::get('setting', [SettingController::class, 'index']);

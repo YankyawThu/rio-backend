@@ -17,8 +17,8 @@
           <i class="mdi mdi-plus"></i>
         </button> --}}
         <div class="role">
-          <small class="designation text-muted">{{ Auth::user()->role->name }}</small>
-          <span class="status-indicator online"></span>
+          <small class="designation badge badge-{{ Auth::user()->label() }}">{{ Auth::user()->role->name }}</small>
+          {{-- <span class="status-indicator online"></span> --}}
         </div>
       </div>
     </li>
@@ -109,7 +109,7 @@
     <!-- Teams management -->
     <li class="nav-item {{ active_segment(2, 'teams') }}">
       <a class="nav-link" data-toggle="collapse" href="#team-dropdown" aria-expanded="false" aria-controls="team-dropdown">
-        <i class="menu-icon fa fa-soccer-ball-o"></i>
+        <i class="menu-icon fa fa-users"></i>
         <span class="menu-title">Manage Team</span>
         <i class="menu-arrow"></i>
       </a>
@@ -142,6 +142,14 @@
           </li>
         </ul>
       </div>
+    </li>
+
+    <!-- Setting -->
+    <li class="nav-item {{ active_path('setting') }}">
+      <a class="nav-link" href="{{ route('setting.index') }}">
+        <i class="menu-icon fa fa-cogs"></i>
+        <span class="menu-title">Setting</span>
+      </a>
     </li>
     
   </ul>

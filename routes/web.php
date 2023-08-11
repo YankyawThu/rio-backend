@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Admin\GameController;
 use App\Http\Controllers\Admin\GameLinkController;
+use App\Http\Controllers\Admin\SettingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +45,7 @@ Route::prefix(config('app.admin_prefix'))->group(function ()
 		Route::get('league-teams', [TeamController::class,'teamsByLeagueId'])->name('leagues.teams');
 		Route::resource('games', GameController::class);
 		Route::resource('game-links', GameLinkController::class);
+		Route::resource('setting', SettingController::class);
 	});
 
 });

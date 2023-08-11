@@ -43,3 +43,12 @@
     justify-content: center;
     align-items: center;
 }
+
+.review {
+    display: flex;
+    align-items: center;
+}
+
+.setting-radio-layout {
+    display: flex;
+}

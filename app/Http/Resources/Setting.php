@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Storage;
 
-class Banner extends JsonResource
+class Setting extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,13 +16,9 @@ class Banner extends JsonResource
      */
     public function toArray($request)
     {
-        $date = date_create($this->created_at);
         return [
-            'id' => $this->id,
-            'image' => asset(Storage::url($this->image)),
-            'title' => $this->title,
-            'body' => $this->description,
-            'createdDate' => date_format($date, 'l d M, Y')
+            'isIOSUnderReview' => $this->ios_under_review,
+            'isAndroidUnderReview' => $this->android_under_review,
         ];
     }
 }
