@@ -87,6 +87,25 @@
       </div>
     </li>
 
+    <!-- Channel management -->
+    <li class="nav-item {{ active_segment(2, 'channels') }}">
+      <a class="nav-link" data-toggle="collapse" href="#channel-dropdown" aria-expanded="false" aria-controls="channel-dropdown">
+        <i class="menu-icon fa fa-globe"></i>
+        <span class="menu-title">Manage Channel</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse {{ show_segment(2, 'channels') }}" id="channel-dropdown">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item">
+            <a class="nav-link {{ active_path('channels') }}" href="{{ route('channels.index') }}">Channel List</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{ active_path('channels/create') }}" href="{{ route('channels.create') }}">Add New Channel</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+
     <!-- League management -->
     <li class="nav-item {{ active_segment(2, 'leagues') }}">
       <a class="nav-link" data-toggle="collapse" href="#league-dropdown" aria-expanded="false" aria-controls="league-dropdown">
