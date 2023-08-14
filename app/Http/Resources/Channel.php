@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Storage;
 
-class Blog extends JsonResource
+class Channel extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -20,7 +20,7 @@ class Blog extends JsonResource
             'id' => $this->id,
             'image' => asset(Storage::url($this->image)),
             'name' => $this->title,
-            'url' => $this->url,
+            'link' => $this->url
         ];
     }
 }
