@@ -24,9 +24,17 @@
 
         <form action="{{ route('games.index') }}" method="GET">
           <div class="row">
-            <div class="col col-md-5">
+            <div class="col col-md-3">
               <div class="form-group">
                 <input type="text" class="form-control" name="keyword" value="{{ request('keyword') }}" placeholder="Keyword">
+              </div>
+            </div>
+            <div class="col col-md-2">
+              <div class="form-group">
+                <select name="type" class="form-control">
+                  <option value="">Select Type</option>
+                  <option value="result" @if (request('type') == "result") selected @endif>Result</option>
+                </select>
               </div>
             </div>
             <div class="col col-md-3">
