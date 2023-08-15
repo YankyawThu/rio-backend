@@ -19,7 +19,7 @@ class Channel extends JsonResource
         return [
             'id' => $this->id,
             'image' => asset(Storage::url($this->image)),
-            'name' => $this->title,
+            'name' => $this->name,
             'link' => $this->url
         ];
     }
