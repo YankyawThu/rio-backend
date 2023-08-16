@@ -11,7 +11,9 @@ use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Admin\GameController;
 use App\Http\Controllers\Admin\GameLinkController;
+use App\Http\Controllers\Admin\ResultLinkController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\ResultController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,7 +48,9 @@ Route::prefix(config('app.admin_prefix'))->group(function ()
 		Route::resource('teams', TeamController::class);
 		Route::get('league-teams', [TeamController::class,'teamsByLeagueId'])->name('leagues.teams');
 		Route::resource('games', GameController::class);
+		Route::resource('results', ResultController::class);
 		Route::resource('game-links', GameLinkController::class);
+		Route::resource('result-links', ResultLinkController::class);
 		Route::resource('setting', SettingController::class);
 	});
 

@@ -53,7 +53,7 @@ class GameRepository extends BaseRepository
     public function result($date)
     {
         $time = date('Y-m-d H:i:s', strtotime('-'.config('enums.avgGameduration').' minutes'));
-        $res = $this->model->whereDate('started_at', $date)->where('started_at', '<', $time)->orderByDesc('started_at')->paginate();
+        $res = $this->model->whereDate('started_at', $date)->where('started_at', '<', $time)->where('started_at', '<', date('Y-m-d H:i:s'))->orderByDesc('started_at')->paginate();
         return $res;
     }
 }
