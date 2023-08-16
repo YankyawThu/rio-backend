@@ -24,8 +24,11 @@ class GameFilter extends Filters
 	public function type($value) 
 	{
         $time = date('Y-m-d H:i:s', strtotime('-'.config('enums.avgGameduration').' minutes'));
-		if($value == 'result') {
-			return $this->builder->where('started_at', '<', $time);
+		if($value == 'now') {
+			return $this->builder->where('started_at', '>=', $time)->where('started_at', '<', date('Y-m-d H:i:s'));
+		}
+		if($value == 'up') {
+			return $this->builder->where('started_at', '>', date('Y-m-d H:i:s'));
 		}
 	}
 

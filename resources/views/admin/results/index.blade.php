@@ -10,32 +10,23 @@
     <div class="card">
       <div class="card-body">
         <div class="d-flex align-items-center justify-content-between">
-          <h4 class="card-title">Game</h4>
+          <h4 class="card-title">Result</h4>
 
           <nav aria-label="breadcrumb" class="mb-1">
             <ol class="breadcrumb">
               <li class="breadcrumb-item">
-                <a href="{{ route('games.index') }}">Dashboard</a>
+                <a href="{{ route('results.index') }}">Dashboard</a>
               </li>
-              <li class="breadcrumb-item active" aria-current="page">Game</li>
+              <li class="breadcrumb-item active" aria-current="page">Result</li>
             </ol>
           </nav>
         </div>
 
-        <form action="{{ route('games.index') }}" method="GET">
+        <form action="{{ route('results.index') }}" method="GET">
           <div class="row">
             <div class="col col-md-3">
               <div class="form-group">
                 <input type="text" class="form-control" name="keyword" value="{{ request('keyword') }}" placeholder="Keyword">
-              </div>
-            </div>
-            <div class="col col-md-2">
-              <div class="form-group">
-                <select name="type" class="form-control">
-                  <option value="">Select Type</option>
-                  <option value="now" @if (request('type') == "now") selected @endif>Live Now</option>
-                  <option value="up" @if (request('type') == "up") selected @endif>Upcoming</option>
-                </select>
               </div>
             </div>
             <div class="col col-md-3">
@@ -53,6 +44,7 @@
                   <tr class="bg-success text-white">
                     <th>#</th>
                     <th>Team A</th>
+                    <th>Score</th>
                     <th>Team B</th>
                     <th>League</th>
                     <th>Started At</th>
@@ -70,6 +62,9 @@
                       </div>
                     </td>
                     <td>
+                      {{ $item->team_a_score }} - {{ $item->team_b_score }}
+                    </td>
+                    <td>
                       <div class="preview-thumbnail">
                         <img src="{{ Storage::url($item->teamB->image) }}" alt="image" class="img-sm profile-pic"> {{ $item->teamB->name }}
                       </div>
@@ -78,12 +73,12 @@
                     <td>{{ $item->started_at }}</td>
                     <td>{{ $item->updated_at }}</td>
                     <td>
-                      <a href="{{ route('games.edit', $item) }}" class="btn btn-icons btn-light">
+                      <a href="{{ route('results.edit', $item->id) }}" class="btn btn-icons btn-light">
                         <span class="fa fa-edit fa-lg text-primary"></span>
                       </a>
                       <button class="btn btn-light" data-toggle="modal" data-target="#delete-game-{{$item->id}}"><span class="fa fa-trash fa-lg text-danger"></span>
                       </button>
-                      <a href="{{ route('games.show', $item) }}" class="btn btn-icons btn-light">
+                      <a href="{{ route('results.show', $item->id) }}" class="btn btn-icons btn-light">
                         <span class="fa fa-eye fa-lg text-primary"></span>
                       </a>
   
@@ -97,7 +92,7 @@
                                 <span aria-hidden="true">&times;</span>
                               </button>
                             </div>
-                            <form action="{{ route('games.destroy', $item) }}" method="POST" 
+                            <form action="{{ route('results.destroy', $item->id) }}" method="POST" 
                             class="d-inline">
                             @csrf
                             @method('DELETE')
