@@ -18,7 +18,7 @@ class BannerController extends Controller
      */
     public function index(BannerFilter $filter)
     {
-        $data = Banner::filter($filter)->orderBy('id','desc')->paginate(30);
+        $data = Banner::filter($filter)->orderBy('id','desc')->paginate(config('enums.itemPerPage'));
         return view('admin.banners.index',compact('data'));
     }
 

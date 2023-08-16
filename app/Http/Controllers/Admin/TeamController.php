@@ -18,7 +18,7 @@ class TeamController extends Controller
      */
     public function index(TeamFilter $filter)
     {
-        $data = Team::filter($filter)->orderBy('id','desc')->paginate(30);
+        $data = Team::filter($filter)->orderBy('id','desc')->paginate(config('enums.itemPerPage'));
         return view('admin.teams.index',compact('data'));
     }
 

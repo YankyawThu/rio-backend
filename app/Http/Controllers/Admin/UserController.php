@@ -19,7 +19,7 @@ class UserController extends Controller
      */
     public function index(UserFilter $filter)
     {
-        $users = User::filter($filter)->orderBy('id','desc')->paginate(25);
+        $users = User::filter($filter)->orderBy('id','desc')->paginate(config('enums.itemPerPage'));
 
         return view('admin.users.index', compact('users'));
     }

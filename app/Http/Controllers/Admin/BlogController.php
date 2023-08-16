@@ -18,7 +18,7 @@ class BlogController extends Controller
      */
     public function index(BlogFilter $filter)
     {
-        $data = Blog::filter($filter)->orderBy('id','desc')->paginate(30);
+        $data = Blog::filter($filter)->orderBy('id','desc')->paginate(config('enums.itemPerPage'));
         return view('admin.blogs.index',compact('data'));
     }
 

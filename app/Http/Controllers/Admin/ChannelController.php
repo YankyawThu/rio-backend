@@ -17,7 +17,7 @@ class ChannelController extends Controller
      */
     public function index(ChannelFilter $filter)
     {
-        $data = Channel::filter($filter)->orderBy('id','desc')->paginate(30);
+        $data = Channel::filter($filter)->orderBy('id','desc')->paginate(config('enums.itemPerPage'));
         return view('admin.channels.index',compact('data'));
     }
 

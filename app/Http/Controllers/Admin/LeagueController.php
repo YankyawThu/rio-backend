@@ -17,7 +17,7 @@ class LeagueController extends Controller
      */
     public function index(LeagueFilter $filter)
     {
-        $data = League::filter($filter)->orderBy('id','desc')->paginate(30);
+        $data = League::filter($filter)->orderBy('id','desc')->paginate(config('enums.itemPerPage'));
         return view('admin.leagues.index',compact('data'));
     }
 

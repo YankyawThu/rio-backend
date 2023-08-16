@@ -62,3 +62,13 @@
 .navbar.default-layout {
     background: linear-gradient(120deg, #02A552, #02A552, #39b475) !important;
 }
+
+.pagination .active .page-link {
+    background-color: #02A552 !important;
+    border-color: #02A552 !important;
+}
+
+.pagination .page-link:hover {
+    background-color: #02A552 !important;
+    border-color: #02A552 !important;
+}

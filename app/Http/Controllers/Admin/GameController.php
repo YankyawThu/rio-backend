@@ -18,7 +18,7 @@ class GameController extends Controller
      */
     public function index(GameFilter $filter)
     {
-        $data = Game::filter($filter)->orderBy('id','desc')->paginate(30);
+        $data = Game::filter($filter)->orderBy('id','desc')->paginate(config('enums.itemPerPage'));
         return view('admin.games.index',compact('data'));
     }
 

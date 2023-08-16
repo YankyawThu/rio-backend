@@ -19,7 +19,7 @@ class ResultController extends Controller
     public function index(GameFilter $filter)
     {
         $time = date('Y-m-d H:i:s', strtotime('-'.config('enums.avgGameduration').' minutes'));
-        $data = Game::filter($filter)->where('started_at', '<', $time)->where('started_at', '<', date('Y-m-d H:i:s'))->orderByDesc('started_at')->paginate(30);
+        $data = Game::filter($filter)->where('started_at', '<', $time)->where('started_at', '<', date('Y-m-d H:i:s'))->orderByDesc('started_at')->paginate(config('enums.itemPerPage'));
         return view('admin.results.index',compact('data'));
     }
 
