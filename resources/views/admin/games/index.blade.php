@@ -66,12 +66,12 @@
                     <td>{{ $index + 1}}</td>
                     <td>
                       <div class="preview-thumbnail">
-                        <img src="{{ Storage::url($item->teamA->image) }}" alt="image" class="img-sm profile-pic"> {{ $item->teamA->name }}
+                        <img src="{{ Storage::url(optional($item->teamA)->image) }}" alt="image" class="img-sm profile-pic"> {{ $item->teamA->name }}
                       </div>
                     </td>
                     <td>
                       <div class="preview-thumbnail">
-                        <img src="{{ Storage::url($item->teamB->image) }}" alt="image" class="img-sm profile-pic"> {{ $item->teamB->name }}
+                        <img src="{{ Storage::url(optional($item->teamB)->image) }}" alt="image" class="img-sm profile-pic"> {{ $item->teamB->name }}
                       </div>
                     </td>
                     <td>{{ $item->league->name }}</td>
