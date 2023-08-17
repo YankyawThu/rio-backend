@@ -34,4 +34,9 @@ class Game extends Model
     {
         return $this->hasMany(GameLink::class,'game_id');
     }
+
+    public function linkWithType($type)
+    {
+        return $this->hasMany(GameLink::class,'game_id')->where('type', $type)->get();
+    }
 }

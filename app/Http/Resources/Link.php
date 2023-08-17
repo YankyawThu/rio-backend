@@ -20,6 +20,7 @@ class Link extends JsonResource
             'id' => $this->id,
             'url' => $this->url,
             'name' => $this->name,
+            'image' => $this->image ? asset($this->image) : null
         ];
     }
 }

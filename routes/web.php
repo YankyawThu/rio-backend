@@ -26,11 +26,11 @@ use App\Http\Controllers\Admin\ResultController;
 |
 */
 
-Route::get('/', function () {
-    return redirect()->route('login');
-});
+// Route::get('/', function () {
+//     return redirect()->route('login');
+// });
 
-Route::get('/home', [HomeController::class,'index'])->name('home');
+Route::get('/', [HomeController::class,'index'])->name('home');
 
 Route::prefix(config('app.admin_prefix'))->group(function ()
 {

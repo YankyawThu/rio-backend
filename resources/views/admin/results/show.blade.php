@@ -27,7 +27,7 @@
                             <a class="nav-link active" data-toggle="tab" href="#result-details" role="tab"> Game Details</a>  
                           </li>  
                           <li class="nav-item">  
-                            <a class="nav-link" data-toggle="tab" href="#live-links" role="tab"> Live Links </a>  
+                            <a class="nav-link" data-toggle="tab" href="#live-links" role="tab"> Links </a>  
                           </li>  
                         </ul>
                         <div class="tab-content">  
@@ -83,6 +83,20 @@
                                         @csrf
                                         <fieldset>
                                             <input type="hidden" name="game_id" value="{{ $game->id }}">
+                                            <div class="row justify-content-md-center">
+                                                <div class="col col-md-3">
+                                                  <!-- image -->
+                                                  <div class="form-group">
+                                                    <img src="{{ asset('assets/images/no-image.png') }}" class="avatar img img-thumbnail" alt="avatar">
+                                                    <h6>Select Cover Image...</h6>
+                                                    <input type="file" name="image" class="image-upload" accept=".png, .jpg, .jpeg" />
+                                                      @if($errors->has('image'))
+                                                        <label class="error mt-2 text-danger">{{ $errors->first('image') }}</label>
+                                                      @endif
+                                                  </div>
+                                                </div>
+                                            </div>
+                                              
                                             @component('components.textbox')
                                                 @slot('title', 'Name')  
                                                 @slot('name', 'name')
@@ -99,7 +113,28 @@
                                                 @slot('required', 'required')
                                             @endcomponent
 
-                                            <input class="btn btn-success" type="submit" value="Save"> 
+                                            <div class="row">
+                                                <div class="col-1 d-flex align-self-center">
+                                                    Type:
+                                                </div>
+                                                <div class="col-10 d-flex flex-row">
+                                                    <div class="form-check">
+                                                        <label class="form-check-label">
+                                                            <input type="radio" class="form-check-input" name="type" id="type" value="{{ config('enums.linkType.highlight') }}">
+                                                            Highlight
+                                                        </label>
+                                                    </div>
+        
+                                                    <div class="form-check ml-3">
+                                                        <label class="form-check-label">
+                                                            <input type="radio" class="form-check-input" name="type" id="type" value="{{ config('enums.linkType.replay') }}">
+                                                            Replay
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <input class="btn btn-success mt-3" type="submit" value="Save"> 
                                         </fieldset>
                                     </form>
                                 </div>
@@ -118,6 +153,7 @@
                                                 <tr>
                                                     <td>
                                                         <p>Name - {{ $link->name }}</p>
+                                                        <p>Type - @if($link->type == config('enums.linkType.highlight')) <small class="badge badge-primary">Highlight</small> @elseif($link->type == config('enums.linkType.replay')) <small class="badge badge-warning">Replay</small> @else <small class="badge badge-sucesss">Live</small> @endif</p>
                                                         <p>URL - {{ $link->url }}</p>
                                                     </td>
                                                     <td class="text-right">

@@ -24,7 +24,8 @@ class GameLinkRequest extends FormRequest
         return [
             'game_id' => 'required',
             'name' => 'required|string',
-            'url' => 'required'
+            'url' => 'required',
+            'type' => 'required'
         ];
     }
 }

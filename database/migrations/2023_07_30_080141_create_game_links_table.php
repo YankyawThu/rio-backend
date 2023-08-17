@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->unsignedInteger('game_id');
             $table->string('name');
+            $table->string('image')->nullable();
             $table->text('url');
+            $table->unsignedInteger('type');
             $table->timestamps();
         });
     }

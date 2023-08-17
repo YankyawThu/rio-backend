@@ -7,6 +7,8 @@ use App\Http\Requests\Admin\GameLinkRequest;
 use App\Models\Game;
 use App\Models\GameLink;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class ResultLinkController extends Controller
 {
@@ -34,6 +36,7 @@ class ResultLinkController extends Controller
         $data = $request->validated();
 
         $game = Game::find($data['game_id']);
+        $data['image'] = Storage::putFileAs('links', $request->file('image'), Str::uuid().'.jpg', ['visibility' => 'public']);
 
         GameLink::create($data);
 

@@ -31,7 +31,9 @@ class Game extends JsonResource
             'teamB' => new Team($this->teamB),
             'league' => new League($this->league),
             'summary' => $this->description,
-            'liveLinks' => $min > config('enums.avgGameduration') ? [] : new LinkCollection($this->links)
+            'liveLinks' => new LinkCollection($this->linkWithType(config('enums.linkType.live'))),
+            'highlights' => new LinkCollection($this->linkWithType(config('enums.linkType.highlight'))),
+            'replayLinks' => new LinkCollection($this->linkWithType(config('enums.linkType.replay')))
         ];
     }
 }

@@ -99,6 +99,8 @@
                                                 @slot('required', 'required')
                                             @endcomponent
 
+                                            <input type="hidden" class="form-check-input" name="type" id="type" value="{{ config('enums.linkType.live') }}">
+
                                             <input class="btn btn-success" type="submit" value="Save"> 
                                         </fieldset>
                                     </form>
@@ -118,6 +120,7 @@
                                                 <tr>
                                                     <td>
                                                         <p>Name - {{ $link->name }}</p>
+                                                        <p>Type - @if($link->type == config('enums.linkType.live')) <small class="badge badge-success">Live</small> @endif</p>
                                                         <p>URL - {{ $link->url }}</p>
                                                     </td>
                                                     <td class="text-right">
