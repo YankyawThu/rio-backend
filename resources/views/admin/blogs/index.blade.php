@@ -62,7 +62,36 @@
                     <td>{{ $item->date }}</td>
                     <td>
                       <a href="{{ route('blogs.show', $item) }}" class="btn btn-icons btn-light">
-                        <span class="fa fa-eye fa-lg text-primary"></span></a>
+                        <span class="fa fa-eye fa-lg text-primary"></span>
+                      </a>
+                      <button class="btn btn-light" data-toggle="modal" data-target="#delete-blog-{{$item->id}}">
+                        <span class="fa fa-trash fa-lg text-danger"></span>
+                      </button>
+                      <!-- Delete Modal -->
+                      <div class="modal fade" id="delete-blog-{{$item->id}}" tabindex="-1" role="dialog" aria-labelledby="Add New" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title">Confirmation!</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <form action="{{ route('blogs.destroy', $item) }}" method="POST" class="d-inline">
+                            @csrf
+                            @method('DELETE')
+                                
+                              <div class="modal-body text-center">
+                                   <span>Are you sure want to delete?</span>       
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                <button type="submit" class="btn btn-success">Yes</button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
                     </td>
                   </tr>
                   @endforeach
