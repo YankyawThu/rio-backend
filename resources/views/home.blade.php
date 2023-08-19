@@ -44,8 +44,12 @@
                         <h2 class="home-main-header">Stay in the Game: Live Streams, Match Results, and Breaking News</h2>
                         <p class="home-main-text mt-5">Our app keeps you ahead of the curve with breaking news, analysis, and insights that fuel your passion for the beautiful game. Don't just watch, immerse yourself in the heart of football excitement with our all-in-one app!</p>
                         <div class="mt-5">
-                            <img src="{{ asset('assets/images/android.svg') }}" alt="" width="170">
-                            <img src="{{ asset('assets/images/ios.svg') }}" alt="" width="170" class="ml-3">
+                            <a href="https://bit.ly/47uDnuB">
+                                <img src="{{ asset('assets/images/android.svg') }}" alt="" width="170">
+                            </a>
+                            <a href="https://apps.apple.com/us/app/rio-sports/id6460858080">
+                                <img src="{{ asset('assets/images/ios.svg') }}" alt="" width="170" class="ml-3">    
+                            </a>
                         </div>
                     </div>
                     <div>
