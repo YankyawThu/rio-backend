@@ -26,9 +26,9 @@ use App\Http\Controllers\Admin\ResultController;
 |
 */
 
-// Route::get('/', function () {
-//     return redirect()->route('login');
-// });
+Route::get('/admin', function () {
+    return redirect()->route('login');
+});
 
 Route::get('/', [HomeController::class,'index'])->name('home');
 
