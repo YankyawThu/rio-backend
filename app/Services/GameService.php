@@ -23,9 +23,9 @@ class GameService
         return $res;
     }
 
-    public function result($date)
+    public function result($date, $league)
     {
-        $res = $this->gameRepo->result($date);
+        $res = $this->gameRepo->result($date, $league);
         return $res;
     }
 }

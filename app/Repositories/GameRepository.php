@@ -16,17 +16,14 @@ class GameRepository extends BaseRepository
     {
         $time = date('Y-m-d H:i:s', strtotime('-'.config('enums.avgGameduration').' minutes'));
         if($type) {
-            if($league) {
-                $res = $this->model->where('started_at', '>=', $time)->where('started_at', '<', date('Y-m-d H:i:s'))->where('league_id', $league)->orderByDesc('started_at')->paginate();
-            }
-            else $res = $this->model->where('started_at', '>=', $time)->where('started_at', '<', date('Y-m-d H:i:s'))->orderByDesc('started_at')->paginate();
+            $res = $this->model->where('started_at', '>=', $time)->where('started_at', '<', date('Y-m-d H:i:s'))->orderByDesc('started_at');
         }
-        else {
-            if($league) {
-                $res = $this->model->where('started_at', '>', date('Y-m-d H:i:s'))->where('league_id', $league)->orderBy('started_at')->paginate();
-            }
-            else $res = $this->model->where('started_at', '>', date('Y-m-d H:i:s'))->orderBy('started_at')->paginate();
+        else $res = $this->model->where('started_at', '>', date('Y-m-d H:i:s'))->orderBy('started_at');
+        
+        if($league) {
+            $res = $res->where('league_id', $league);
         }
+        $res = $res->paginate(config('enums.itemPerPage'));
         return $res;
         
     }
@@ -50,10 +47,14 @@ class GameRepository extends BaseRepository
         return $res;
     }
 
-    public function result($date)
+    public function result($date, $league = null)
     {
         $time = date('Y-m-d H:i:s', strtotime('-'.config('enums.avgGameduration').' minutes'));
-        $res = $this->model->whereDate('started_at', $date)->where('started_at', '<', $time)->where('started_at', '<', date('Y-m-d H:i:s'))->orderByDesc('started_at')->paginate();
+        $res = $this->model->whereDate('started_at', $date)->where('started_at', '<', $time)->where('started_at', '<', date('Y-m-d H:i:s'))->orderByDesc('started_at');
+        if($league) {
+            $res = $res->where('league_id', $league);
+        }
+        $res = $res->paginate(config('enums.itemPerPage'));
         return $res;
     }
 }

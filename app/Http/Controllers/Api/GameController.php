@@ -48,7 +48,8 @@ class GameController extends Controller
             return resBadRequest($message);
         }
         $date = $request->date;
-        $res = $this->gameService->result($date);
+        $league = $request->league;
+        $res = $this->gameService->result($date, $league);
         return resSuccess(new GameCollection($res));
     }
 }
