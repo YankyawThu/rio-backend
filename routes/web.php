@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\GameLinkController;
 use App\Http\Controllers\Admin\ResultLinkController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\ResultController;
+use App\Http\Controllers\Admin\NotiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,6 +53,8 @@ Route::prefix(config('app.admin_prefix'))->group(function ()
 		Route::resource('game-links', GameLinkController::class);
 		Route::resource('result-links', ResultLinkController::class);
 		Route::resource('setting', SettingController::class);
+		Route::get('notification', [NotiController::class, 'index'])->name('notification.index');
+		Route::post('notification/send', [NotiController::class, 'sendCustomNoti'])->name('notification.send');
 	});
 
 });

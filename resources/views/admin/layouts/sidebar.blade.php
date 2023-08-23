@@ -165,6 +165,13 @@
       </div>
     </li>
 
+    <li class="nav-item {{ active_path('notification') }}">
+      <a class="nav-link" href="{{ route('notification.index') }}">
+        <i class="menu-icon fa fa-bell"></i>
+        <span class="menu-title">Notification</span>
+      </a>
+    </li>
+
     <!-- Setting -->
     <li class="nav-item {{ active_path('setting') }}">
       <a class="nav-link" href="{{ route('setting.index') }}">

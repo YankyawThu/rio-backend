@@ -15,7 +15,7 @@
           <nav aria-label="breadcrumb" class="mb-1">
             <ol class="breadcrumb">
               <li class="breadcrumb-item">
-                <a href="{{ route('games.index') }}">Dashboard</a>
+                <a href="{{ route('admin.index') }}">Dashboard</a>
               </li>
               <li class="breadcrumb-item active" aria-current="page">Game</li>
             </ol>
