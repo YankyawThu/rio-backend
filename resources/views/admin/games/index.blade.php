@@ -47,7 +47,7 @@
             <div class="col col-md-2">
               <div class="form-group">
                 <select name="league" class="form-control">
-                  <option value="">Select Leauges</option>
+                  <option value="">Select Leauge</option>
                   @foreach ($leauges as $league)
                     <option value="{{ $league->id }}" @if (request('league') == $league->id) selected @endif>{{ $league->name }}</option>
                   @endforeach

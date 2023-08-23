@@ -10,6 +10,7 @@ class TeamFilter extends Filters
 	 */
 	protected $filters = [
 		'keyword',
+		'league'
 	];
 
 	/**
@@ -18,6 +19,11 @@ class TeamFilter extends Filters
 	public function keyword($value) 
 	{
 		return $this->builder->where('name', 'LIKE', "%{$value}%");
+	}
+
+	public function league($value) 
+	{
+		return $this->builder->where('league_id', $value);
 	}
 
 }
