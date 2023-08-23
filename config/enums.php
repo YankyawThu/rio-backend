@@ -2,7 +2,7 @@
 
 return [
     'itemPerPage' => 10,
-    'avgGameduration' => 100, //minutes
+    'avgGameduration' => 125, //minutes
     'linkType' => [
         'live' => 1,
         'highlight' => 2,
