@@ -84,10 +84,10 @@ class UserController extends Controller
     public function update(UpdateUserRequest $request, User $user)
     {
         $data = $request->validated();
-        unset($data['password']);
-
+        // unset($data['password']);
+        // dd($data['password'], bcrypt(request('password')));
         if (request('password')) {
-            $data['password'] = bcrypt(request('password'));
+            $data['password'] = bcrypt($data['password']);
         }
 
         $user->update($data);
@@ -103,7 +103,9 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //$user->delete();
+        if(auth()->user()->id != $user->id) {
+            $user->delete();
+        }
         return redirect()->route('users.index');
 
     }

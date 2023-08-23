@@ -24,7 +24,7 @@
 
         <form action="{{ route('blogs.index') }}" method="GET">
           <div class="row">
-            <div class="col col-md-5">
+            <div class="col col-md-2">
               <div class="form-group">
                 <input type="text" class="form-control" name="keyword" value="{{ request('keyword') }}" placeholder="Keyword">
               </div>

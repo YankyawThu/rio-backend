@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\GameRequest;
 use App\Models\League;
 use App\Models\Game;
+use App\Models\Team;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -19,8 +20,10 @@ class GameController extends Controller
     public function index(GameFilter $filter)
     {
         $time = date('Y-m-d H:i:s', strtotime('-'.config('enums.avgGameduration').' minutes'));
+        $leauges = League::all();
+        $teams = Team::all();
         $data = Game::filter($filter)->where('started_at', '>', $time)->orderBy('id','desc')->paginate(config('enums.itemPerPage'));
-        return view('admin.games.index',compact('data'));
+        return view('admin.games.index',compact('data', 'leauges', 'teams'));
     }
 
     /**

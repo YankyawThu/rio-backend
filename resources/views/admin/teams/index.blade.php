@@ -24,9 +24,19 @@
 
         <form action="{{ route('teams.index') }}" method="GET">
           <div class="row">
-            <div class="col col-md-5">
+            <div class="col col-md-2">
               <div class="form-group">
                 <input type="text" class="form-control" name="keyword" value="{{ request('keyword') }}" placeholder="Keyword">
+              </div>
+            </div>
+            <div class="col col-md-2">
+              <div class="form-group">
+                <select name="league" class="form-control">
+                  <option value="">Select Leauges</option>
+                  @foreach ($leauges as $league)
+                    <option value="{{ $league->id }}" @if (request('league') == $league->id) selected @endif>{{ $league->name }}</option>
+                  @endforeach
+                </select>
               </div>
             </div>
             <div class="col col-md-3">

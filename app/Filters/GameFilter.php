@@ -9,16 +9,28 @@ class GameFilter extends Filters
 	 * Register filter properties
 	 */
 	protected $filters = [
-		'league_id',
-		'type'
+		'league',
+		'type',
+		'teamA',
+		'teamB'
 	];
 
 	/**
-	 * Filter by league_id.
+	 * Filter by league.
 	 */
-	public function league_id($value) 
+	public function league($value) 
 	{
 		return $this->builder->where('league_id', $value);
+	}
+
+	public function teamA($value) 
+	{
+		return $this->builder->where('team_a_id', $value);
+	}
+
+	public function teamB($value) 
+	{
+		return $this->builder->where('team_b_id', $value);
 	}
 
 	public function type($value) 

@@ -24,7 +24,7 @@
 
         <form action="{{ route('banners.index') }}" method="GET">
           <div class="row">
-            <div class="col col-md-3">
+            <div class="col col-md-2">
               <div class="form-group">
                 <select name="type" class="form-control">
                   <option value="">Select Type</option>

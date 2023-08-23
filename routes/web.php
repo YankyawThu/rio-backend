@@ -36,7 +36,7 @@ Route::prefix(config('app.admin_prefix'))->group(function ()
 {
 	Auth::routes(['register' => false, 'reset' => false]);
 
-	Route::middleware(['auth', 'superadmin'])->group(function () {
+	Route::middleware('auth')->group(function () {
 
 		Route::get('/', [ DashboardController::class,'index' ])->name('admin.index');
 

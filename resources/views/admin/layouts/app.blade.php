@@ -24,7 +24,9 @@
     <link rel="stylesheet" href="{{ asset('assets/css/demo_1/style.css') }}">
     <!-- End Layout styles -->
     <link rel="stylesheet" href="{{ asset('assets/css/my.css') }}">
-    <link rel="shortcut icon" href="{{ asset('assets/images/logo.png') }}" /> </head>
+    <link rel="shortcut icon" href="{{ asset('assets/images/logo.png') }}" />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+  </head>
   <body>
     <div class="container-scroller">
       @yield('content')
@@ -48,6 +50,7 @@
     <script src="{{ asset('assets/js/shared/todolist.js') }}"></script>
     <script src="{{ asset('assets/js/shared/select2.js') }}"></script>
     <script src="{{ asset('assets/js/shared/formpickers.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <!-- endinject -->
     <!-- Custom js for this page-->
     @yield('custom-js')
