@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'itemPerPage' => 10,
+    'itemPerPage' => 100,
     'avgGameduration' => 125, //minutes
     'linkType' => [
         'live' => 1,
