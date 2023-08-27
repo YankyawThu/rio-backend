@@ -155,11 +155,33 @@
         <ul class="nav flex-column sub-menu">
           <li class="nav-item">
             <a class="nav-link {{ active_path('games') }}" href="{{ route('games.index') }}">Game List</a>
-          </li><li class="nav-item">
+          </li>
+          <li class="nav-item">
             <a class="nav-link {{ active_path('results') }}" href="{{ route('results.index') }}">Result</a>
           </li>
           <li class="nav-item">
             <a class="nav-link {{ active_path('games/create') }}" href="{{ route('games.create') }}">Add New Game</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+
+    <li class="nav-item {{ active_segment(2, 'ads') }}">
+      <a class="nav-link" data-toggle="collapse" href="#ads-dropdown" aria-expanded="false" aria-controls="ads-dropdown">
+        <i class="menu-icon fa fa-usd"></i>
+        <span class="menu-title">Manage Ads</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse {{ show_segment(2, 'ads') }}" id="ads-dropdown">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item">
+            <a class="nav-link {{ active_path('ads') }}" href="{{ route('ads.index') }}">Ads List</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{ active_path('ads/create') }}" href="{{ route('ads.create') }}">Add New Image Ads</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link {{ active_path('ads/create-video') }}" href="{{ route('ads.createVideo') }}">Add New Video Ads</a>
           </li>
         </ul>
       </div>
