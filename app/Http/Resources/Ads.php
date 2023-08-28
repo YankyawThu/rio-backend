@@ -19,8 +19,8 @@ class Ads extends JsonResource
         return [
             'id' => $this->id,
             'type' => $this->type,
-            'image' => asset(Storage::url($this->image)),
-            'vidoUrl' => asset(Storage::url($this->video_url)),
+            'image' => !$this->image ?? asset(Storage::url($this->image)),
+            'vidoUrl' => !$this->video_url ?? asset(Storage::url($this->video_url)),
             'videoDuration' => $this->video_duration,
         ];
     }
