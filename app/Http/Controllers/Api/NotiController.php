@@ -14,7 +14,7 @@ class NotiController extends Controller
 
     public function sendLiveNoti()
     {
-        $title = 'LIVE NOW';
+        $title = config('enums.noti.title.live');
         $now = date('Y-m-d H:i');
         $lives = Game::where('started_at', 'like', $now.'%')->get();
         foreach($lives as $live) {

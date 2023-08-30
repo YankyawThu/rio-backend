@@ -44,6 +44,7 @@ Route::prefix(config('app.admin_prefix'))->group(function ()
 
 		Route::resource('users', UserController::class);
 		Route::resource('banners', BannerController::class);
+		Route::get('blogs/noti/{id}', [BlogController::class, 'sendNoti'])->name('blogs.noti');
 		Route::resource('blogs', BlogController::class);
 		Route::resource('channels', ChannelController::class);
 		Route::resource('leagues', LeagueController::class);

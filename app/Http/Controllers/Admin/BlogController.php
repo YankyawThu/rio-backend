@@ -10,9 +10,12 @@ use App\Models\Blog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use App\Traits\NotificationTrait;
+use Illuminate\Support\Facades\Log;
 
 class BlogController extends Controller
 {
+    use NotificationTrait;
     /**
      * Display a listing of the resource.
      */
@@ -86,5 +89,15 @@ class BlogController extends Controller
         $blog->delete();
 
         return redirect()->route('blogs.index');
+    }
+
+    public function sendNoti($id) 
+    {
+        $blog = Blog::findOrFail($id);
+        $title = config('enums.noti.title.blog');
+        $body = $blog->title;
+        $response = $this->sendNotification($title, $body);
+        Log::info('Blog Noti Res '.$id.' '.$response->body());
+        return back();
     }
 }

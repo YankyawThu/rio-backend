@@ -64,6 +64,9 @@
                       <a href="{{ route('blogs.show', $item) }}" class="btn btn-icons btn-light">
                         <span class="fa fa-eye fa-lg text-primary"></span>
                       </a>
+                      <a href="{{ route('blogs.noti', $item->id) }}" class="btn btn-icons btn-light">
+                        <span class="fa fa-bell fa-lg text-warning"></span>
+                      </a>
                       <button class="btn btn-light" data-toggle="modal" data-target="#delete-blog-{{$item->id}}">
                         <span class="fa fa-trash fa-lg text-danger"></span>
                       </button>
