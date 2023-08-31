@@ -19,6 +19,14 @@ class Setting extends JsonResource
         return [
             'isIOSUnderReview' => $this->ios_under_review,
             'isAndroidUnderReview' => $this->android_under_review,
+            'androidVersion' => [
+                'versionName' => $this->android_version_name,
+                'isForceUpdate' => $this->android_force_update,
+            ],
+            'iosVersion' => [
+                'versionName' => $this->ios_version_name,
+                'isForceUpdate' => $this->ios_force_update,
+            ],
         ];
     }
 }

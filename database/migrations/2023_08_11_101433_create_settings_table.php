@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
+            $table->string('ios_version_name');
+            $table->string('android_version_name');
+            $table->unsignedInteger('ios_force_update');
+            $table->unsignedInteger('android_force_update');
             $table->boolean('ios_under_review');
             $table->boolean('android_under_review');
             $table->timestamps();

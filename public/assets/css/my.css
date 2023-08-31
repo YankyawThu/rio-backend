@@ -148,3 +148,11 @@
     height: 100px !important;
     border-radius: 0 !important;
 }
+
+.setting-input {
+    width: 200px;
+}
+
+.nav-tabs .nav-item .active {
+    color: #02A552;
+}

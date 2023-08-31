@@ -55,9 +55,14 @@ class SettingController extends Controller
     public function update(Request $request, string $id)
     {
         $data = $request->all();
+        $setting = Setting::findOrFail($id);
         Setting::where('id', $id)->update([
-            'ios_under_review' => $data['ios_under_review'],
-            'android_under_review' => $data['android_under_review']
+            'android_version_name' => $data['android_version_name'] ?? $setting->android_version_name,
+            'ios_version_name' => $data['ios_version_name'] ?? $setting->ios_version_name,
+            'android_under_review' => $data['android_under_review'] ?? $setting->android_under_review,
+            'ios_under_review' => $data['ios_under_review'] ?? $setting->ios_under_review,
+            'android_force_update' => $data['android_force_update'] ?? $setting->android_force_update,
+            'ios_force_update' => $data['ios_force_update'] ?? $setting->ios_force_update
         ]);
 
         return redirect()->route('setting.index');
