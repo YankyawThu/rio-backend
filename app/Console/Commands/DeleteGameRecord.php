@@ -3,29 +3,29 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use App\Http\Controllers\Task\NotiController;
+use App\Http\Controllers\Task\GameController;
 
-class SendLive extends Command
+class DeleteGameRecord extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'live:send';
+    protected $signature = 'game:delete';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Auto Sending Live Notification to Users';
+    protected $description = 'Auto Delete Game Records After last 10 days';
 
     /**
      * Execute the console command.
      */
-    public function handle(NotiController $controller)
+    public function handle(GameController $controller)
     {
-        $controller->sendLiveNoti();
+        $controller->deleteGameRecord();
     }
 }
