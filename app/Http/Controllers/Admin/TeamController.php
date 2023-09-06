@@ -19,7 +19,7 @@ class TeamController extends Controller
     public function index(TeamFilter $filter)
     {
         $data = Team::filter($filter)->orderBy('id','desc')->paginate(config('enums.itemPerPage'));
-        $leauges = League::all();
+        $leauges = League::withTrashed()->get();
         return view('admin.teams.index',compact('data', 'leauges'));
     }
 
@@ -28,7 +28,7 @@ class TeamController extends Controller
      */
     public function create()
     {
-        $leagues = League::all();
+        $leagues = League::withTrashed()->get();
         return view('admin.teams.create',compact('leagues'));
     }
 

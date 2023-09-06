@@ -18,16 +18,16 @@ class Game extends Model
     }
     public function league()
     {
-        return $this->belongsTo(League::class, 'league_id');
+        return $this->belongsTo(League::class, 'league_id')->withTrashed();
     }
     public function teamA()
     {
-        return $this->belongsTo(Team::class, 'team_a_id');
+        return $this->belongsTo(Team::class, 'team_a_id')->withTrashed();
     }
 
     public function teamB()
     {
-        return $this->belongsTo(Team::class, 'team_b_id');
+        return $this->belongsTo(Team::class, 'team_b_id')->withTrashed();
     }
 
     public function links()

@@ -20,8 +20,8 @@ class GameController extends Controller
     public function index(GameFilter $filter)
     {
         $time = date('Y-m-d H:i:s', strtotime('-'.config('enums.avgGameduration').' minutes'));
-        $leauges = League::all();
-        $teams = Team::all();
+        $leauges = League::withTrashed()->get();
+        $teams = Team::withTrashed()->get();
         $data = Game::filter($filter)->where('started_at', '>', $time)->orderBy('started_at')->paginate(config('enums.itemPerPage'));
         return view('admin.games.index',compact('data', 'leauges', 'teams'));
     }
@@ -31,7 +31,7 @@ class GameController extends Controller
      */
     public function create()
     {
-        $leagues = League::all();
+        $leagues = League::withTrashed()->get();
         return view('admin.games.create',compact('leagues'));
     }
 

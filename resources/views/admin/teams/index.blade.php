@@ -69,7 +69,7 @@
                       </div>
                     </td>
                     <td>{{ $item->name }}</td>
-                    <td>{{ optional($item->league)->name }}</td>
+                    <td>{{ $item->league->name }}</td>
                     <td>
                       <a href="{{ route('teams.edit', $item) }}" class="btn btn-icons btn-light">
                         <span class="fa fa-edit fa-lg text-primary"></span>

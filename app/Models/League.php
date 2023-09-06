@@ -19,6 +19,6 @@ class League extends Model
 
     public function teams()
     {
-        return $this->hasMany(Team::class,'league_id');
+        return $this->hasMany(Team::class,'league_id')->withTrashed();
     }
 }
