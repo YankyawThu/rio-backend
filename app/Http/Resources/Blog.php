@@ -16,13 +16,13 @@ class Blog extends JsonResource
      */
     public function toArray($request)
     {
-        $date = date_create($this->published_date);
+        // $date = date_create($this->published_date);
         return [
             'id' => $this->id,
             'image' => asset(Storage::url($this->image)),
             'title' => $this->title,
             'body' => $this->body,
-            'publishedDate' => date_format($date, 'l d M, Y')
+            'publishedDate' => $this->date
         ];
     }
 }
