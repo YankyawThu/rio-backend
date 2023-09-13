@@ -153,8 +153,8 @@
                                                 <tr>
                                                     <td>
                                                         <p>Name - {{ $link->name }}</p>
-                                                        <p>Type - @if($link->type == config('enums.linkType.highlight')) <small class="badge badge-primary">Highlight</small> @elseif($link->type == config('enums.linkType.replay')) <small class="badge badge-warning">Replay</small> @else <small class="badge badge-sucesss">Live</small> @endif</p>
-                                                        <p>URL - {{ $link->url }}</p>
+                                                        <p>Type - @if($link->type == config('enums.linkType.highlight')) <small class="badge badge-primary">Highlight</small> @elseif($link->type == config('enums.linkType.replay')) <small class="badge badge-warning">Replay</small> @else <small class="badge badge-success">Live</small> @endif</p>
+                                                        <p class="text-wrap">URL - {{ $link->url }}</p>
                                                     </td>
                                                     <td class="text-right">
                                                         <button class="btn btn-light" data-toggle="modal" data-target="#delete-link-{{ $link->id }}"><span class="fa fa-trash fa-lg text-danger"></span></button>
