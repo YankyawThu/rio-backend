@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\GameController;
 use App\Http\Controllers\Api\SettingController;
 use App\Http\Controllers\Api\DeviceController;
 use App\Http\Controllers\Api\AdsController;
+use App\Http\Controllers\Api\ChannelController;
 use App\Http\Middleware\Authorize;
 
 // Route::middleware([Authorize::class])->group(function () {
