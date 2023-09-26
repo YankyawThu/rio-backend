@@ -21,4 +21,5 @@ use App\Http\Middleware\Authorize;
     Route::get('setting', [SettingController::class, 'index']);
     Route::post('device-token', [DeviceController::class, 'store']);
     Route::get('ads', [AdsController::class, 'index']);
+    Route::get('live-channel', [ChannelController::class, 'index']);
 // });
